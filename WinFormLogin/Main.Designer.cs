@@ -47,11 +47,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(165, 49);
+            label1.Location = new Point(292, 49);
             label1.Name = "label1";
-            label1.Size = new Size(652, 57);
+            label1.Size = new Size(382, 57);
             label1.TabIndex = 0;
-            label1.Text = "Ingrese los datos del paciente";
+            label1.Text = "Ingrese los datos";
             // 
             // label2
             // 
@@ -181,18 +181,18 @@
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private TextBox txtNombre;
-        private TextBox txtApellido;
-        private TextBox txtDni;
-        private TextBox txtEdad;
-        private TextBox txtNumHabitacion;
-        private Button btnIngresar;
-        private Button btnCancelIngreso;
+        protected Label label1;
+        protected Label label2;
+        protected Label label3;
+        protected Label label4;
+        protected Label label5;
+        protected Label label6;
+        protected TextBox txtNombre;
+        protected TextBox txtApellido;
+        protected TextBox txtDni;
+        protected TextBox txtEdad;
+        protected TextBox txtNumHabitacion;
+        protected Button btnIngresar;
+        protected Button btnCancelIngreso;
     }
 }

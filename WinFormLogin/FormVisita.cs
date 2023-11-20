@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace WinFormLogin
 {
-    public partial class FormVisita : Form
+    public partial class FormVisita : Main
     {
         public FormVisita()
         {
@@ -20,32 +20,20 @@ namespace WinFormLogin
         }
 
 
-        private void btnAceptarVisita_Click(object sender, EventArgs e)
+        protected override void btnIngresar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombreVisita.Text;
-            string apellido = txtApellidoVisita.Text;
-            int dni = int.Parse(txtDniVisita.Text);
-            int edad = int.Parse(txtEdadVisita.Text);
-            string nombrePaciente = txtVisitaPacNombre.Text;
-            string apellidoPaciente = txtVisitaPacApellido.Text;
+            
+
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            int dni = int.Parse(txtDni.Text);
+            int edad = int.Parse(txtEdad.Text);
+            int numeroHabitacion = int.Parse(txtNumHabitacion.Text);
             Visita visita = null;
 
             int n = 1;
 
-            Main main = new Main();
-
-            foreach (Paciente p in Main.lista)
-            {
-                if (p.Nombre == nombrePaciente & p.Apellido == apellidoPaciente)
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("este paciente no se encuentra en el hospital");
-                    n = 0;
-                }
-            }
+            
 
 
             if (n != 0)
@@ -77,18 +65,18 @@ namespace WinFormLogin
                             {
                                 string parentesco = frmParentesco.ObtenerParentesco();
                                 frmParentesco.Close();
-                                visita = new Visita(nombre, apellido, edad, dni, ($"{nombrePaciente} {apellidoPaciente}"), numHabitacion, parentesco);
+                                visita = new Visita(nombre, apellido, edad, dni, /*($"{nombrePaciente} {apellidoPaciente}")*/ "a", numHabitacion, parentesco);
                             }
                         }
                         else
                         {
-                            visita = new Visita(nombre, apellido, edad, dni, ($"{nombrePaciente} {apellidoPaciente}"), numHabitacion);
+                            visita = new Visita(nombre, apellido, edad, dni, /*($"{nombrePaciente} {apellidoPaciente}")*/ "a", numHabitacion);
                         }
                     }
                 }
                 else
                 {
-                    visita = new Visita(nombre, apellido, edad, dni, ($"{nombrePaciente} {apellidoPaciente}"));
+                    visita = new Visita(nombre, apellido, edad, dni, "a");
                 }
 
                 float monto = visita.Pagar(visita);
@@ -117,6 +105,11 @@ namespace WinFormLogin
             {
                 e.Cancel = true; // Cancela el cierre del formulario
             }
+        }
+
+        private void FormVisita_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

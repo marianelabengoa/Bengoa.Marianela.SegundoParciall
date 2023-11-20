@@ -27,7 +27,7 @@ namespace WinFormLogin
             MessageBox.Show($"Bienvenido {usuario.Nombre} {usuario.Apellido}");
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        protected virtual void btnIngresar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
@@ -147,7 +147,7 @@ namespace WinFormLogin
 
         }
 
-        private void btnCancelIngreso_Click(object sender, EventArgs e)
+        protected void btnCancelIngreso_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

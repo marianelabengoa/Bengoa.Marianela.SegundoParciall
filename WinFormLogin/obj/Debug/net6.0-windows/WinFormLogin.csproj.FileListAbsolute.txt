@@ -90,3 +90,4 @@ C:\Users\manue\Source\Repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\De
 C:\Users\manue\Source\Repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.pdb
 C:\Users\manue\Source\Repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.genruntimeconfig.cache
 C:\Users\manue\Source\Repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\ref\WinFormLogin.dll
+C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.Form1.resources
