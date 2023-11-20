@@ -55,8 +55,9 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator !=(ListaPacientes lista, Paciente paciente)
         {
-            return !(lista.pacientes.Contains(paciente));
+            return !(lista == paciente);
         }
+
         /// <summary>
         /// sobrecarga operador + que agrega al paciente solo si no lo contiene
         /// </summary>
