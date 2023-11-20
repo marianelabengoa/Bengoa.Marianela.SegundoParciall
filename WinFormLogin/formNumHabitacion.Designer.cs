@@ -63,7 +63,7 @@
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 486);
+            ClientSize = new Size(789, 407);
             Controls.Add(btnAceptarNumHabitacion);
             Controls.Add(txtNumHabitacion);
             Controls.Add(label1);

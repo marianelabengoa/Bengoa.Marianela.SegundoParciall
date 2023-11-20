@@ -33,12 +33,11 @@
             label2 = new Label();
             txtUser = new TextBox();
             txtClave = new TextBox();
-            btnVisualizarLog = new Button();
             SuspendLayout();
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(104, 474);
+            btnAceptar.Location = new Point(317, 474);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(225, 69);
             btnAceptar.TabIndex = 0;
@@ -79,22 +78,11 @@
             txtClave.TabIndex = 4;
             txtClave.UseSystemPasswordChar = true;
             // 
-            // btnVisualizarLog
-            // 
-            btnVisualizarLog.Location = new Point(508, 474);
-            btnVisualizarLog.Name = "btnVisualizarLog";
-            btnVisualizarLog.Size = new Size(280, 69);
-            btnVisualizarLog.TabIndex = 5;
-            btnVisualizarLog.Text = "Visualizar Log";
-            btnVisualizarLog.UseVisualStyleBackColor = true;
-            btnVisualizarLog.Click += btnVisualizarLog_Click;
-            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(858, 577);
-            Controls.Add(btnVisualizarLog);
             Controls.Add(txtClave);
             Controls.Add(txtUser);
             Controls.Add(label2);
@@ -115,6 +103,5 @@
         private Label label2;
         private TextBox txtUser;
         private TextBox txtClave;
-        private Button btnVisualizarLog;
     }
 }

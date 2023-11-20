@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.IO;
 using System.Windows.Forms;
+using System.Text;
 
 
 namespace WinFormLogin
@@ -34,6 +35,7 @@ namespace WinFormLogin
             if (this.usuario != null)
             {
                 RegistrarAcceso();
+                MostrarDatos();
                 this.DialogResult = DialogResult.OK;
             }
         }
@@ -96,6 +98,17 @@ namespace WinFormLogin
         private void btnVisualizarLog_Click(object sender, EventArgs e)
         {
             
+        }
+        private void MostrarDatos()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Nombre: {usuario.Nombre}");
+            sb.AppendLine($"Apellido: {usuario.Apellido}");
+            sb.AppendLine($"Legajo: {usuario.Legajo}");
+            sb.AppendLine($"Correo: {usuario.Correo}");
+            sb.AppendLine($"Perfil: {usuario.Perfil}");
+
+            MessageBox.Show(sb.ToString());
         }
     }
 }
