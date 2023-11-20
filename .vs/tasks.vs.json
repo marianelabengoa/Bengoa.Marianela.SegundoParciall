@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "tarea-Entidades",
+      "appliesTo": "Entidades/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "tarea-prueba",
+      "appliesTo": "Entidades/prueba.cs",
+      "type": "launch"
+    }
+  ]
+}
