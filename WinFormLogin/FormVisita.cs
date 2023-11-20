@@ -22,7 +22,7 @@ namespace WinFormLogin
 
         protected override void btnIngresar_Click(object sender, EventArgs e)
         {
-            
+
 
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
@@ -33,10 +33,11 @@ namespace WinFormLogin
 
             int n = 1;
 
-            
+            FormNomPac fnp = new FormNomPac();
+            DialogResult r = fnp.ShowDialog();
 
 
-            if (n != 0)
+            if (r == DialogResult.OK)
             {
                 DialogResult confirm = MessageBox.Show("¿conoce el numero de habitacion del paciente que visita?", "confirm", MessageBoxButtons.YesNo);
 
@@ -65,18 +66,18 @@ namespace WinFormLogin
                             {
                                 string parentesco = frmParentesco.ObtenerParentesco();
                                 frmParentesco.Close();
-                                visita = new Visita(nombre, apellido, edad, dni, /*($"{nombrePaciente} {apellidoPaciente}")*/ "a", numHabitacion, parentesco);
+                                visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion, parentesco);
                             }
                         }
                         else
                         {
-                            visita = new Visita(nombre, apellido, edad, dni, /*($"{nombrePaciente} {apellidoPaciente}")*/ "a", numHabitacion);
+                            visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion);
                         }
                     }
                 }
                 else
                 {
-                    visita = new Visita(nombre, apellido, edad, dni, "a");
+                    visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}");
                 }
 
                 float monto = visita.Pagar(visita);

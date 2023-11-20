@@ -13,6 +13,8 @@ namespace WinFormLogin
 {
     public partial class FormNomPac : Form
     {
+        public string nombre;
+        public string apellido;
         public FormNomPac()
         {
             InitializeComponent();
@@ -26,14 +28,15 @@ namespace WinFormLogin
 
         private void btnAceptarnom_Click(object sender, EventArgs e)
         {
-            string nombre = txtVisitaPacNombre.Text;
-            string apellido = txtVisitaPacApellido.Text;
+            nombre = txtVisitaPacNombre.Text;
+            apellido = txtVisitaPacApellido.Text;
             Main main = new Main();
 
             foreach (Paciente p in Main.lista)
             {
                 if (p.Nombre == nombre & p.Apellido == apellido)
                 {
+                    this.DialogResult = DialogResult.OK;
                     break;
                 }
                 else
