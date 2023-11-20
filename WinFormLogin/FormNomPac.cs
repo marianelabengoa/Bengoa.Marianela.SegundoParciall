@@ -28,20 +28,25 @@ namespace WinFormLogin
 
         private void btnAceptarnom_Click(object sender, EventArgs e)
         {
-            nombre = txtVisitaPacNombre.Text;
-            apellido = txtVisitaPacApellido.Text;
-            Main main = new Main();
-
-            foreach (Paciente p in Main.lista)
+            if (txtVisitaPacNombre!=null && txtVisitaPacApellido!=null)
             {
-                if (p.Nombre == nombre & p.Apellido == apellido)
+
+                nombre = txtVisitaPacNombre.Text;
+                apellido = txtVisitaPacApellido.Text;
+                Main main = new Main();
+
+
+                foreach (Paciente p in Main.lista)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("este paciente no se encuentra en el hospital");
+                    if (p.Nombre == nombre & p.Apellido == apellido)
+                    {
+                        this.DialogResult = DialogResult.OK;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("este paciente no se encuentra en el hospital");
+                    }
                 }
             }
         }

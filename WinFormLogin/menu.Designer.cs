@@ -32,7 +32,6 @@
             btnAgregarVis = new Button();
             label1 = new Label();
             btnCerrarApp = new Button();
-            btnVisualizarLog = new Button();
             SuspendLayout();
             // 
             // btnAgregarPac
@@ -58,7 +57,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(358, 117);
+            label1.Location = new Point(304, 117);
             label1.Name = "label1";
             label1.Size = new Size(457, 48);
             label1.TabIndex = 2;
@@ -66,7 +65,7 @@
             // 
             // btnCerrarApp
             // 
-            btnCerrarApp.Location = new Point(348, 488);
+            btnCerrarApp.Location = new Point(307, 407);
             btnCerrarApp.Name = "btnCerrarApp";
             btnCerrarApp.Size = new Size(467, 69);
             btnCerrarApp.TabIndex = 3;
@@ -74,22 +73,11 @@
             btnCerrarApp.UseVisualStyleBackColor = true;
             btnCerrarApp.Click += btnCerrarApp_Click;
             // 
-            // btnVisualizarLog
-            // 
-            btnVisualizarLog.Location = new Point(348, 370);
-            btnVisualizarLog.Name = "btnVisualizarLog";
-            btnVisualizarLog.Size = new Size(467, 69);
-            btnVisualizarLog.TabIndex = 4;
-            btnVisualizarLog.Text = "Visualizar Log";
-            btnVisualizarLog.UseVisualStyleBackColor = true;
-            btnVisualizarLog.Click += btnVisualizarLog_Click;
-            // 
             // menu
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1186, 578);
-            Controls.Add(btnVisualizarLog);
+            ClientSize = new Size(1064, 530);
             Controls.Add(btnCerrarApp);
             Controls.Add(label1);
             Controls.Add(btnAgregarVis);
@@ -107,6 +95,5 @@
         private Button btnAgregarVis;
         private Label label1;
         private Button btnCerrarApp;
-        private Button btnVisualizarLog;
     }
 }

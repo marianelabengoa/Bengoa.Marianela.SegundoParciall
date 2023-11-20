@@ -22,79 +22,81 @@ namespace WinFormLogin
 
         protected override void btnIngresar_Click(object sender, EventArgs e)
         {
-
-
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            int dni = int.Parse(txtDni.Text);
-            int edad = int.Parse(txtEdad.Text);
-            int numeroHabitacion = int.Parse(txtNumHabitacion.Text);
-            Visita visita = null;
-
-            int n = 1;
-
-            FormNomPac fnp = new FormNomPac();
-            DialogResult r = fnp.ShowDialog();
-
-
-            if (r == DialogResult.OK)
+            if (ValidarNoVacio(txtNombre.Text, "Nombre") && ValidarNoVacio(txtApellido.Text, "Apellido") && ValidarNumerico(txtDni.Text, "DNI") && ValidarNumerico(txtEdad.Text, "Edad"))
             {
-                DialogResult confirm = MessageBox.Show("¿conoce el numero de habitacion del paciente que visita?", "confirm", MessageBoxButtons.YesNo);
+
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                int dni = int.Parse(txtDni.Text);
+                int edad = int.Parse(txtEdad.Text);
+                Visita visita = null;
+
+                int n = 1;
+
+                FormNomPac fnp = new FormNomPac();
+                DialogResult r = fnp.ShowDialog();
 
 
-                if (confirm == DialogResult.Yes)
+                if (r == DialogResult.OK)
                 {
-                    this.Hide();
-                    formNumHabitacion frmNumHab = new formNumHabitacion();
-                    DialogResult resultt = frmNumHab.ShowDialog();
+                    DialogResult confirm = MessageBox.Show("¿conoce el numero de habitacion del paciente que visita?", "confirm", MessageBoxButtons.YesNo);
 
-                    if (resultt == DialogResult.OK)
+
+                    if (confirm == DialogResult.Yes)
                     {
-                        int numHabitacion = frmNumHab.ObtenerNumhab();
-                        frmNumHab.Close();
+                        this.Hide();
+                        formNumHabitacion frmNumHab = new formNumHabitacion();
+                        DialogResult resultt = frmNumHab.ShowDialog();
 
-                        DialogResult conf = MessageBox.Show("¿Desea ingresar que parenteco tiene con el paciente?", "confirm", MessageBoxButtons.YesNo);
-
-
-                        if (conf == DialogResult.Yes)
+                        if (resultt == DialogResult.OK)
                         {
-                            this.Hide();
-                            FormParentesco frmParentesco = new FormParentesco();
-                            DialogResult resulta = frmParentesco.ShowDialog();
+                            int numHabitacion = frmNumHab.ObtenerNumhab();
+                            frmNumHab.Close();
 
-                            if (resulta == DialogResult.OK)
+                            DialogResult conf = MessageBox.Show("¿Desea ingresar que parenteco tiene con el paciente?", "confirm", MessageBoxButtons.YesNo);
+
+
+                            if (conf == DialogResult.Yes)
                             {
-                                string parentesco = frmParentesco.ObtenerParentesco();
-                                frmParentesco.Close();
-                                visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion, parentesco);
+                                this.Hide();
+                                FormParentesco frmParentesco = new FormParentesco();
+                                DialogResult resulta = frmParentesco.ShowDialog();
+
+                                if (resulta == DialogResult.OK)
+                                {
+                                    string parentesco = frmParentesco.ObtenerParentesco();
+                                    frmParentesco.Close();
+                                    visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion, parentesco);
+                                }
+                            }
+                            else
+                            {
+                                visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion);
                             }
                         }
-                        else
-                        {
-                            visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}", numHabitacion);
-                        }
                     }
+                    else
+                    {
+                        visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}");
+                    }
+
+                    float monto = visita.Pagar(visita);
+
+                    if (visita != null)
+                    {
+                        MessageBox.Show($"La visita debe pagar ${monto}");
+                    }
+
+                    MessageBox.Show(visita.ToString());
+                    string accion = visita.RealizarAccion();
+                    MessageBox.Show(accion);
+
+
                 }
-                else
-                {
-                    visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}");
-                }
-
-                float monto = visita.Pagar(visita);
-
-                if (visita != null)
-                {
-                    MessageBox.Show($"La visita debe pagar ${monto}");
-                }
-
-                MessageBox.Show(visita.ToString());
-                string accion = visita.RealizarAccion();
-                MessageBox.Show(accion);
-
-
+                DialogResult dialog = DialogResult.OK;
+                this.Close();
             }
-            DialogResult dialog = DialogResult.OK;
-            this.Close();
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

@@ -26,23 +26,27 @@ namespace WinFormLogin
 
         private void btnAceptarNumHabitacion_Click(object sender, EventArgs e)
         {
-            int numHabitacion = int.Parse(txtNumHabitacion.Text);
-
-            Main main = new Main();
-            int n = 1;
-            foreach (Paciente p in Main.lista)
+            if (numHabitacion!= null && numHabitacion > 0)
             {
-                if (p.numeroHabitacion == numHabitacion)
+                int numHabitacion = int.Parse(txtNumHabitacion.Text);
+
+                Main main = new Main();
+                int n = 1;
+                foreach (Paciente p in Main.lista)
                 {
-                    DialogResult = DialogResult.OK;
-                    this.Close();
-                    break;
+                    if (p.numeroHabitacion == numHabitacion)
+                    {
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("este paciente no se encuentra en el hospital");
+                        n = 0;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("este paciente no se encuentra en el hospital");
-                    n = 0;
-                }
+
             }
         }
 

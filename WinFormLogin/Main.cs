@@ -29,81 +29,85 @@ namespace WinFormLogin
 
         protected virtual void btnIngresar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            int dni = int.Parse(txtDni.Text);
-            int edad = int.Parse(txtEdad.Text);
-            int numeroHabitacion = int.Parse(txtNumHabitacion.Text);
-            Paciente paciente = null;
-
-            DialogResult obraConfirm = MessageBox.Show("¿El paciente posee obra social/prepaga?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (obraConfirm == DialogResult.Yes)
+            if (ValidarNoVacio(txtNombre.Text, "Nombre") && ValidarNoVacio(txtApellido.Text, "Apellido") && ValidarNumerico(txtDni.Text, "DNI") && ValidarNumerico(txtEdad.Text, "Edad") && ValidarNumerico(txtNumHabitacion.Text, "Número de Habitación"))
             {
-                this.Hide();
-                FormObraSocial frmobra = new FormObraSocial();
-                DialogResult result = frmobra.ShowDialog();
-                if (result == DialogResult.OK)
+
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                int dni = int.Parse(txtDni.Text);
+                int edad = int.Parse(txtEdad.Text);
+                int numeroHabitacion = int.Parse(txtNumHabitacion.Text);
+                Paciente paciente = null;
+
+                DialogResult obraConfirm = MessageBox.Show("¿El paciente posee obra social/prepaga?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (obraConfirm == DialogResult.Yes)
                 {
-                    EObraSocial obraSocial = frmobra.ObtenerObra();
-                    frmobra.Close();
-
-                    DialogResult fechaaConfirm = MessageBox.Show("¿Conoce la fecha de nacimiento del paciente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (fechaaConfirm == DialogResult.Yes)
+                    this.Hide();
+                    FormObraSocial frmobra = new FormObraSocial();
+                    DialogResult result = frmobra.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        FormFechaNacimiento frmFecha = new FormFechaNacimiento();
-                        DialogResult resulta = frmFecha.ShowDialog();
-                        if (resulta == DialogResult.OK)
-                        {
-                            DateTime fechaNacimiento = frmFecha.ObtenerFecha();
-                            frmFecha.Close();
+                        EObraSocial obraSocial = frmobra.ObtenerObra();
+                        frmobra.Close();
 
-                            paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion, obraSocial, fechaNacimiento);
+                        DialogResult fechaaConfirm = MessageBox.Show("¿Conoce la fecha de nacimiento del paciente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (fechaaConfirm == DialogResult.Yes)
+                        {
+                            FormFechaNacimiento frmFecha = new FormFechaNacimiento();
+                            DialogResult resulta = frmFecha.ShowDialog();
+                            if (resulta == DialogResult.OK)
+                            {
+                                DateTime fechaNacimiento = frmFecha.ObtenerFecha();
+                                frmFecha.Close();
+
+                                paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion, obraSocial, fechaNacimiento);
+                            }
+                            else
+                            {
+                                paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion, obraSocial);
+                            }
                         }
                         else
                         {
+
                             paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion, obraSocial);
                         }
                     }
                     else
                     {
-
-                        paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion, obraSocial);
+                        paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion);
                     }
                 }
                 else
                 {
                     paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion);
                 }
-            }
-            else
-            {
-                paciente = new Paciente(nombre, apellido, edad, dni, numeroHabitacion);
-            }
 
 
-            if (paciente != null)
-            {
-                Pagar(paciente);
-
-                FormDoctores doctores = new FormDoctores();
-                DialogResult r = doctores.ShowDialog();
-
-                if (r == DialogResult.OK)
+                if (paciente != null)
                 {
-                    Doctor doctor = doctores.ObtenerDoctor();
-                    MessageBox.Show($"{doctor.RealizarAccion()}");
-                    MessageBox.Show($"{paciente.RealizarAccion()}");
+                    Pagar(paciente);
+
+                    FormDoctores doctores = new FormDoctores();
+                    DialogResult r = doctores.ShowDialog();
+
+                    if (r == DialogResult.OK)
+                    {
+                        Doctor doctor = doctores.ObtenerDoctor();
+                        MessageBox.Show($"{doctor.RealizarAccion()}");
+                        MessageBox.Show($"{paciente.RealizarAccion()}");
+                    }
                 }
+
+                //MessageBox.Show($"{lista.ToString()}");
+                MessageBox.Show($"{lista}");
+                MessageBox.Show($"Lista en orden ascendente segun edades: {lista.OrdenarPorEdadAscendente()}");
+                MessageBox.Show($"Lista en orden descendente segun edades: {lista.OrdenarPorEdadDescendente()}");
+
+                this.DialogResult = DialogResult.OK;
             }
-
-            //MessageBox.Show($"{lista.ToString()}");
-            MessageBox.Show($"{lista}");
-            MessageBox.Show($"Lista en orden ascendente segun edades: {lista.OrdenarPorEdadAscendente()}");
-            MessageBox.Show($"Lista en orden descendente segun edades: {lista.OrdenarPorEdadDescendente()}");
-
-            this.DialogResult = DialogResult.OK;
 
         }
 
@@ -162,5 +166,24 @@ namespace WinFormLogin
                 e.Cancel = true; // Cancela el cierre del formulario
             }
         }
+        protected virtual bool ValidarNumerico(string input, string fieldName)
+        {
+            if (!int.TryParse(input, out _))
+            {
+                MessageBox.Show($"El valor ingresado para {fieldName} no es válido. Debe ser un número entero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+        protected virtual bool ValidarNoVacio(string text, string fieldName)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                MessageBox.Show($"El campo {fieldName} no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
     }
 }
