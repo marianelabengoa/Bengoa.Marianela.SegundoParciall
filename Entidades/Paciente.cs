@@ -97,14 +97,7 @@ namespace Entidades
         /// <returns></returns>
         public override bool Equals(object obj)
         {
-            if (obj is Paciente other)
-            {
-                return this.Nombre == other.Nombre
-                    && this.Apellido == other.Apellido
-                    && this.dni == other.dni
-                    && this.numeroHabitacion == other.numeroHabitacion;
-            }
-            return false;
+            return obj.GetType() == typeof(Paciente);
         }
         /// <summary>
         /// sobrecarga operador == que valida que los pacientes no tengan e mismo nombre
