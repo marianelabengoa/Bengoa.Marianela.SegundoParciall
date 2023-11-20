@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {}
+    "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {}
   },
   "projects": {
-    "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\obj\\",
         "projectStyle": "PackageReference",

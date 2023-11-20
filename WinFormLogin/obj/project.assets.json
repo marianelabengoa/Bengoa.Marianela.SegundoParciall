@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\WinFormLogin\\WinFormLogin.csproj",
+      "projectUniqueName": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\WinFormLogin\\WinFormLogin.csproj",
       "projectName": "WinFormLogin",
-      "projectPath": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\WinFormLogin\\WinFormLogin.csproj",
+      "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\WinFormLogin\\WinFormLogin.csproj",
       "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\WinFormLogin\\obj\\",
       "projectStyle": "PackageReference",
@@ -53,8 +53,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\manue\\Source\\Repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj"
+            "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj"
             }
           }
         }
