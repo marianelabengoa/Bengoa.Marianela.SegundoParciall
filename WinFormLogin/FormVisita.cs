@@ -14,9 +14,12 @@ namespace WinFormLogin
 {
     public partial class FormVisita : Main
     {
+        public List<Visita> listaVisitas { get; set; }
+
         public FormVisita()
         {
             InitializeComponent();
+            listaVisitas = new List<Visita>();
         }
 
 
@@ -24,13 +27,12 @@ namespace WinFormLogin
         {
             if (ValidarNoVacio(txtNombre.Text, "Nombre") && ValidarNoVacio(txtApellido.Text, "Apellido") && ValidarNumerico(txtDni.Text, "DNI") && ValidarNumerico(txtEdad.Text, "Edad"))
             {
-
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
                 int dni = int.Parse(txtDni.Text);
                 int edad = int.Parse(txtEdad.Text);
-                Visita visita = null;
-
+                Visita visita = null; 
+    
                 int n = 1;
 
                 FormNomPac fnp = new FormNomPac();
@@ -78,6 +80,7 @@ namespace WinFormLogin
                     else
                     {
                         visita = new Visita(nombre, apellido, edad, dni, $"{fnp.nombre} {fnp.apellido}");
+
                     }
 
                     float monto = visita.Pagar(visita);
@@ -93,10 +96,16 @@ namespace WinFormLogin
 
 
                 }
-                DialogResult dialog = DialogResult.OK;
-                this.Close();
-            }
+                listaVisitas.Add(visita);
+                FormModificarVisita formModificarVisita = new FormModificarVisita(listaVisitas);
+                DialogResult rr =formModificarVisita.ShowDialog();
+                if(rr==DialogResult.OK)
+                {
+                    DialogResult dialog = DialogResult.OK;
+                    this.Close();
 
+                }
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
