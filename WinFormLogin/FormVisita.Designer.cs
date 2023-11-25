@@ -28,16 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(163, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 48);
-            label1.TabIndex = 5;
             // 
             // FormVisita
             // 
@@ -45,9 +36,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(876, 1361);
-            Controls.Add(label1);
             Name = "FormVisita";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormVisita";
             Load += FormVisita_Load;
             ResumeLayout(false);
@@ -70,5 +59,6 @@
         private TextBox txtVisitaPacApellido;
         private Label label6;
         private Label label7;
+        private Button btnVerVis;
     }
 }

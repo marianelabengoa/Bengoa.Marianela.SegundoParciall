@@ -14,7 +14,11 @@ namespace WinFormLogin
 {
     public partial class FormVisita : Main
     {
-        public List<Visita> listaVisitas { get; set; }
+        public List<Visita> listaVisitas;
+
+        //public static List<Visita> Lista { get; internal set; }
+
+        // public List<Visita> listaVisitas { get; set; }
 
         public FormVisita()
         {
@@ -31,8 +35,8 @@ namespace WinFormLogin
                 string apellido = txtApellido.Text;
                 int dni = int.Parse(txtDni.Text);
                 int edad = int.Parse(txtEdad.Text);
-                Visita visita = null; 
-    
+                Visita visita = null;
+
                 int n = 1;
 
                 FormNomPac fnp = new FormNomPac();
@@ -97,14 +101,9 @@ namespace WinFormLogin
 
                 }
                 listaVisitas.Add(visita);
-                FormModificarVisita formModificarVisita = new FormModificarVisita(listaVisitas);
-                DialogResult rr =formModificarVisita.ShowDialog();
-                if(rr==DialogResult.OK)
-                {
-                    DialogResult dialog = DialogResult.OK;
-                    this.Close();
 
-                }
+                DialogResult dialog = DialogResult.OK;
+                this.Close();
             }
         }
 
@@ -122,6 +121,16 @@ namespace WinFormLogin
         private void FormVisita_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVerVis_Click(object sender, EventArgs e)
+        {
+            FormModificarVisita formModificarVisita = new FormModificarVisita(listaVisitas);
+            formModificarVisita.Show();
+        }
+        public List<Visita> Lista()
+        {
+            return listaVisitas;
         }
     }
 }

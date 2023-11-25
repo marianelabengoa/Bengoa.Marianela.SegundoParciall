@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace WinFormLogin
     public partial class menu : Form
     {
         private Main mainForm;
+        List<Visita> listaV;
         public menu()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace WinFormLogin
             if (Main.lista.Verificar() == true)
             {
                 FormVisita visita = new FormVisita();
+                listaV=visita.Lista();
                 DialogResult vis = visita.ShowDialog();
             }
         }
@@ -93,6 +96,20 @@ namespace WinFormLogin
                 visualizador.MostrarLog(logContent);
                 visualizador.ShowDialog();
             }
+        }
+
+
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
+            formOrdenarPac.Show();
+        }
+
+        private void btnModVis_Click(object sender, EventArgs e)
+        {
+            FormModificarVisita formModificarVisita = new FormModificarVisita(listaV);
+            formModificarVisita.Show();
         }
     }
 }

@@ -16,6 +16,9 @@
     <Compile Update="formNumHabitacion.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormOrdenarPac.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormParentesco.cs">
       <SubType>Form</SubType>
     </Compile>

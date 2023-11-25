@@ -32,6 +32,8 @@
             btnAgregarVis = new Button();
             label1 = new Label();
             btnCerrarApp = new Button();
+            btnModificar = new Button();
+            btnModVis = new Button();
             SuspendLayout();
             // 
             // btnAgregarPac
@@ -65,7 +67,7 @@
             // 
             // btnCerrarApp
             // 
-            btnCerrarApp.Location = new Point(307, 407);
+            btnCerrarApp.Location = new Point(304, 476);
             btnCerrarApp.Name = "btnCerrarApp";
             btnCerrarApp.Size = new Size(467, 69);
             btnCerrarApp.TabIndex = 3;
@@ -73,11 +75,33 @@
             btnCerrarApp.UseVisualStyleBackColor = true;
             btnCerrarApp.Click += btnCerrarApp_Click;
             // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(50, 359);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(467, 69);
+            btnModificar.TabIndex = 4;
+            btnModificar.Text = "modificar pac";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnModVis
+            // 
+            btnModVis.Location = new Point(568, 359);
+            btnModVis.Name = "btnModVis";
+            btnModVis.Size = new Size(467, 69);
+            btnModVis.TabIndex = 5;
+            btnModVis.Text = "modificar visita";
+            btnModVis.UseVisualStyleBackColor = true;
+            btnModVis.Click += btnModVis_Click;
+            // 
             // menu
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1064, 530);
+            ClientSize = new Size(1064, 580);
+            Controls.Add(btnModVis);
+            Controls.Add(btnModificar);
             Controls.Add(btnCerrarApp);
             Controls.Add(label1);
             Controls.Add(btnAgregarVis);
@@ -95,5 +119,7 @@
         private Button btnAgregarVis;
         private Label label1;
         private Button btnCerrarApp;
+        private Button btnModificar;
+        private Button btnModVis;
     }
 }
