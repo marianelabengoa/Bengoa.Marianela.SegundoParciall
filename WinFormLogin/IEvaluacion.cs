@@ -8,7 +8,7 @@ namespace WinFormLogin
 {
     internal interface IEvaluacion
     {
-        int ObtenerNivelSatisfaccion();
+        void EscribirPromedioEnArchivo(float promedio);
         void MostrarResultado(int nivel);
     }
 }
