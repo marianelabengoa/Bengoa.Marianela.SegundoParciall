@@ -34,6 +34,10 @@
             btnCerrarApp = new Button();
             btnModificar = new Button();
             btnModVis = new Button();
+            pictureBox1 = new PictureBox();
+            lblBienvenido = new Label();
+            label2 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnAgregarPac
@@ -59,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(304, 117);
+            label1.Location = new Point(304, 161);
             label1.Name = "label1";
             label1.Size = new Size(457, 48);
             label1.TabIndex = 2;
@@ -95,11 +99,43 @@
             btnModVis.UseVisualStyleBackColor = true;
             btnModVis.Click += btnModVis_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(1221, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(500, 500);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // lblBienvenido
+            // 
+            lblBienvenido.AutoSize = true;
+            lblBienvenido.Font = new Font("Schadow BT", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBienvenido.Location = new Point(332, 50);
+            lblBienvenido.Name = "lblBienvenido";
+            lblBienvenido.Size = new Size(401, 67);
+            lblBienvenido.TabIndex = 7;
+            lblBienvenido.Text = "BIENVENIDO";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(1259, 538);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 48);
+            label2.TabIndex = 8;
+            label2.Text = "label2";
+            // 
             // menu
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1817, 642);
+            Controls.Add(label2);
+            Controls.Add(lblBienvenido);
+            Controls.Add(pictureBox1);
             Controls.Add(btnModVis);
             Controls.Add(btnModificar);
             Controls.Add(btnCerrarApp);
@@ -109,6 +145,8 @@
             Name = "menu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "menu";
+            Load += menu_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,5 +159,8 @@
         private Button btnCerrarApp;
         private Button btnModificar;
         private Button btnModVis;
+        private PictureBox pictureBox1;
+        private Label lblBienvenido;
+        private Label label2;
     }
 }

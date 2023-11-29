@@ -13,6 +13,10 @@ namespace WinFormLogin
 {
     public partial class menu : Form
     {
+        private string[] imagenes = { @"..\..\..\imagen11.jpg", @"..\..\..\imagen22.jpg", @"..\..\..\imagen33.jpg" };
+        private int indiceActual = 0;
+        private Task carruselTask;
+
         private Main mainForm;
         List<Visita> listaV;
         public menu()
@@ -31,7 +35,7 @@ namespace WinFormLogin
             if (Main.lista.Verificar() == true)
             {
                 FormVisita visita = new FormVisita();
-                listaV=visita.Lista();
+                listaV = visita.Lista();
                 DialogResult vis = visita.ShowDialog();
             }
         }
@@ -73,6 +77,11 @@ namespace WinFormLogin
             {
                 e.Cancel = true; // Cancela el cierre del formulario
             }
+            else
+            {
+                carruselTask?.Wait(); // Espera a que la tarea termine antes de cerrar
+                carruselTask?.Dispose();
+            }
         }
 
         private void btnCerrarApp_Click(object sender, EventArgs e)
@@ -82,6 +91,8 @@ namespace WinFormLogin
 
             if (result == DialogResult.Yes)
             {
+                // Detiene la tarea cuando se cierra el formulario
+                carruselTask?.Dispose();
                 Application.Exit();
             }
         }
@@ -111,5 +122,54 @@ namespace WinFormLogin
             FormModificarVisita formModificarVisita = new FormModificarVisita(listaV);
             formModificarVisita.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menu_Load(object sender, EventArgs e)
+        {
+            MostrarImagenActual();
+
+            // Inicia la tarea del carrusel en segundo plano
+            IniciarCarrusel();
+        }
+        private void MostrarImagenActual()
+        {
+            // Verifica si el índice está dentro del rango
+            if (indiceActual >= 0 && indiceActual < imagenes.Length)
+            {
+                pictureBox1.ImageLocation = imagenes[indiceActual];
+            }
+        }
+        private void SiguienteImagen()
+        {
+            // Incrementa el índice
+            indiceActual++;
+
+            // Si alcanza el final, vuelve al principio
+            if (indiceActual >= imagenes.Length)
+            {
+                indiceActual = 0;
+            }
+
+            // Muestra la imagen actual
+            MostrarImagenActual();
+        }
+        private void IniciarCarrusel()
+        {
+            carruselTask = Task.Run(async () =>
+            {
+                while (true)
+                {
+                    await Task.Delay(2000); // Espera 2 segundos (ajusta según sea necesario)
+
+                    // Actualiza la UI desde el hilo principal
+                    Invoke((Action)SiguienteImagen);
+                }
+            });
+        }
+            
     }
 }
