@@ -8,5 +8,7 @@ namespace WinFormLogin
 {
     internal interface IEvaluacion
     {
+        int ObtenerNivelSatisfaccion();
+        void MostrarResultado(int nivel);
     }
 }

@@ -72,16 +72,15 @@ namespace WinFormLogin
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Mostrar un mensaje de confirmación al usuario
             DialogResult result = MessageBox.Show("¿Estás seguro que quieres cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
             {
-                e.Cancel = true; // Cancela el cierre del formulario
+                e.Cancel = true;
             }
             else
             {
-                carruselTask?.Wait(); // Espera a que la tarea termine antes de cerrar
+                carruselTask?.Wait(); 
                 carruselTask?.Dispose();
             }
             DetenerParpadeo();
@@ -89,7 +88,6 @@ namespace WinFormLogin
 
         private void btnCerrarApp_Click(object sender, EventArgs e)
         {
-            // Mostrar un mensaje de confirmación al usuario
             DialogResult result = MessageBox.Show("¿Estás seguro que quieres cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -140,7 +138,6 @@ namespace WinFormLogin
         }
         private void MostrarImagenActual()
         {
-            // Verifica si el índice está dentro del rango
             if (indiceActual >= 0 && indiceActual < imagenes.Length)
             {
                 pictureBox1.ImageLocation = imagenes[indiceActual];
@@ -148,16 +145,13 @@ namespace WinFormLogin
         }
         private void SiguienteImagen()
         {
-            // Incrementa el índice
             indiceActual++;
 
-            // Si alcanza el final, vuelve al principio
             if (indiceActual >= imagenes.Length)
             {
                 indiceActual = 0;
             }
 
-            // Muestra la imagen actual
             MostrarImagenActual();
         }
         private void IniciarCarrusel()
@@ -168,7 +162,6 @@ namespace WinFormLogin
                 {
                     await Task.Delay(2000); // Espera 2 segundos (ajusta según sea necesario)
 
-                    // Actualiza la UI desde el hilo principal
                     Invoke((Action)SiguienteImagen);
                 }
             });
@@ -177,18 +170,15 @@ namespace WinFormLogin
         {
             while (parpadeoActivo)
             {
-                // Modificar la interfaz de usuario desde el hilo principal
                 ActualizarLabel();
 
-                // Esperar un tiempo antes de alternar de nuevo
-                //Task.Delay(300).Wait(); // Puedes ajustar el tiempo de espera según tus preferencias
                 if (lblBienvenido.Visible==false)
                 {
                     Task.Delay(200).Wait();
                 }
                 else
                 {
-                    Task.Delay(600).Wait();
+                    Task.Delay(300).Wait();
                 }
             }
         }
@@ -196,57 +186,14 @@ namespace WinFormLogin
         {
             if (lblBienvenido.InvokeRequired)
             {
-                // Si estamos en un hilo diferente al principal, usar BeginInvoke
                 lblBienvenido.BeginInvoke(new ActualizarLabelDelegate(ActualizarLabel));
             }
             else
             {
-                // Modificar la interfaz de usuario desde el hilo principal
                 lblBienvenido.Visible = !lblBienvenido.Visible;
             }
         }
-        /*private async void IniciarParpadeo()
-        {
-            cancellationTokenSource = new CancellationTokenSource();
-
-            try
-            {
-                parpadeoActivo = true;
-
-                // Inicia un bucle en un hilo separado usando Task.Run
-                await Task.Run(() => Parpadear(), cancellationTokenSource.Token);
-            }
-            catch (TaskCanceledException)
-            {
-                // No hacer nada si la tarea se cancela
-            }
-        }*/
-        /*private async void IniciarParpadeo()
-        {
-            cancellationTokenSource = new CancellationTokenSource();
-
-            try
-            {
-                parpadeoActivo = true;
-
-                // Inicia un bucle en un hilo separado usando Task.Run
-                await Task.Run(async () =>
-                {
-                    while (parpadeoActivo)
-                    {
-                        // Alternar la visibilidad del Label
-                        label1.Visible = !label1.Visible;
-
-                        // Esperar un tiempo antes de alternar de nuevo
-                        await Task.Delay(500); // Puedes ajustar el tiempo de espera según tus preferencias
-                    }
-                }, cancellationTokenSource.Token);
-            }
-            catch (TaskCanceledException)
-            {
-                // No hacer nada si la tarea se cancela
-            }
-        }*/
+        
         private async void IniciarParpadeo()
         {
             cancellationTokenSource = new CancellationTokenSource();
@@ -255,17 +202,14 @@ namespace WinFormLogin
             {
                 parpadeoActivo = true;
 
-                // Inicia un bucle en un hilo separado usando Task.Run
                 await Task.Run(() => Parpadear(), cancellationTokenSource.Token);
             }
             catch (TaskCanceledException)
             {
-                // No hacer nada si la tarea se cancela
             }
         }
         private void DetenerParpadeo()
         {
-            // Detener el parpadeo estableciendo la bandera a false y cancelando la tarea
             parpadeoActivo = false;
             cancellationTokenSource.Cancel();
         }
