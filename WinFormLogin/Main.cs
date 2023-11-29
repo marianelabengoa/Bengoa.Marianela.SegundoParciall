@@ -16,10 +16,15 @@ namespace WinFormLogin
 {
     public partial class Main : Form
     {
+        private delegate void CambiarColorDelegate(Color color);
+        private event CambiarColorDelegate CambiarColorEvent;
         public static ListaPacientes lista = new ListaPacientes();
         public Main()
         {
             InitializeComponent();
+            CambiarColorEvent += CambiarColorBoton;
+            btnIngresar.MouseHover += BtnIngresar_MouseBoton;
+            btnCancelIngreso.MouseHover += BtnCancel_MouseBoton;
         }
 
         public Main(Usuario usuario) : this()
@@ -38,6 +43,8 @@ namespace WinFormLogin
                 int edad = int.Parse(txtEdad.Text);
                 int numeroHabitacion = int.Parse(txtNumHabitacion.Text);
                 Paciente paciente = null;
+
+
 
                 DialogResult obraConfirm = MessageBox.Show("¿El paciente posee obra social/prepaga?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -101,11 +108,13 @@ namespace WinFormLogin
                     }
                 }
 
-                //MessageBox.Show($"{lista.ToString()}");
                 MessageBox.Show($"{lista}");
-                MessageBox.Show($"Lista en orden ascendente segun edades: {lista.OrdenarPorEdadAscendente()}");
-                MessageBox.Show($"Lista en orden descendente segun edades: {lista.OrdenarPorEdadDescendente()}");
 
+                txtNombre.Text = string.Empty;
+                txtApellido.Text = string.Empty;
+                txtDni.Text = string.Empty;
+                txtEdad.Text= string.Empty;
+                txtNumHabitacion.Text = string.Empty;
                 this.DialogResult = DialogResult.OK;
             }
 
@@ -185,5 +194,28 @@ namespace WinFormLogin
             return true;
         }
 
+        private void CambiarColorBoton(Color color)
+        {
+            if (btnIngresar.InvokeRequired)
+            {
+                // Si es necesario, invocar el método en el subproceso correcto
+                btnIngresar.Invoke(new CambiarColorDelegate(CambiarColorBoton), color);
+            }
+            else
+            {
+                // Cambiar el color del botón
+                btnIngresar.BackColor = color;
+            }
+        }
+        private void BtnIngresar_MouseBoton(object sender, EventArgs e)
+        {
+            // Invoca el evento para cambiar el color del botón a verde
+            CambiarColorEvent?.Invoke(Color.Green);
+        }
+        private void BtnCancel_MouseBoton(object sender, EventArgs e)
+        {
+            // Invoca el evento para cambiar el color del botón a verde
+            CambiarColorEvent?.Invoke(Color.Red);
+        }
     }
 }

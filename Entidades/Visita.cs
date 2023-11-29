@@ -65,15 +65,12 @@ namespace Entidades
         /// <param name="edad"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public override string Mostrar(string nombre, string apellido, int edad, int dni)
+        public override string Mostrar()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("paciente: " + this.paciente);
-            sb.AppendLine("numero habitacion: " + this.numeroHabitacion);
-            sb.AppendLine("parentesco: " + this.parentesco);
+            string sb=("paciente: " + this.paciente + "numero habitacion: " + this.numeroHabitacion + "parentesco: " + this.parentesco);
 
             sb.ToString();
-            return base.Mostrar(nombre, apellido, edad, dni) + sb;
+            return base.Mostrar() + sb;
         }
         /// <summary>
         /// verifica que el obj sea visita

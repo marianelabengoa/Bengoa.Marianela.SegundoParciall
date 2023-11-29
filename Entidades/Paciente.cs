@@ -78,16 +78,10 @@ namespace Entidades
         /// <param name="edad"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public override string Mostrar(string nombre, string apellido, int edad, int dni)
+        public override string Mostrar()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("nombre: " + this.nombre);
-            sb.AppendLine("apellido: " + this.apellido);
-            sb.AppendLine("edad: " + this.edad);
-            sb.AppendLine("DNI " + this.dni);
-
-            sb.ToString();
-            return base.Mostrar(nombre, apellido, edad, dni) + sb;
+            
+            return base.Mostrar();
 
         }
         /// <summary>

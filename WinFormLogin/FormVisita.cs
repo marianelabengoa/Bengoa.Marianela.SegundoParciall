@@ -24,6 +24,8 @@ namespace WinFormLogin
         {
             InitializeComponent();
             listaVisitas = new List<Visita>();
+            this.txtNumHabitacion.Hide();
+            label6.Visible = false;
         }
 
 
@@ -94,16 +96,16 @@ namespace WinFormLogin
                         MessageBox.Show($"La visita debe pagar ${monto}");
                     }
 
-                    MessageBox.Show(visita.ToString());
+                    MessageBox.Show(visita.Mostrar());
                     string accion = visita.RealizarAccion();
                     MessageBox.Show(accion);
 
 
-                }
                 listaVisitas.Add(visita);
-
-                DialogResult dialog = DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
+                }
+
             }
         }
 

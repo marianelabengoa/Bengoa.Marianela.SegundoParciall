@@ -119,15 +119,9 @@ namespace Entidades
         /// <param name="edad"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public virtual string Mostrar(string nombre, string apellido, int edad, int dni)
+        public virtual string Mostrar()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("nombre: " + this.nombre);
-            sb.AppendLine("apellido: " + this.apellido);
-            sb.AppendLine("edad: " + this.edad);
-            sb.AppendLine("DNI " + this.dni);
-
-            return sb.ToString();
+            return ("nombre: " + this.nombre + ", apellido: " + this.apellido + ", edad: " + this.edad + ", DNI " + this.dni);
         }
         /// <summary>
         /// segun la obra social cambia el preciode la consulta

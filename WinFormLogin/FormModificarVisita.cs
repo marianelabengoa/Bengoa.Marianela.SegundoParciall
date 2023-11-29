@@ -63,7 +63,48 @@ namespace WinFormLogin
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (lstPac.SelectedIndex != -1)
+            {
+                int indice = this.lstPac.SelectedIndex;
 
+
+                Visita visita = this.lista[indice];
+
+                txtNombre.Text = visita.Nombre;
+                txtApellido.Text = visita.Apellido;
+                txtDNI.Text = visita.Dni.ToString();
+                txtEdad.Text = visita.Edad.ToString();
+                if (visita.numeroHabitacion != null)
+                { 
+                    txtNumHab.Text = visita.numeroHabitacion.ToString();
+                }
+                if(visita.parentesco!=null)
+                {
+
+                    txtParentesco.Text = visita.parentesco;
+                }
+
+                if(btnAceptar.DialogResult == DialogResult.OK)
+                {
+                    /*visita.Nombre=txtNombre.Text;
+                    visita.Apellido=txtApellido.Text;
+                    visita.Dni=int.Parse(txtDNI.Text);
+                    visita.Edad=int.Parse(txtEdad.Text);
+                    visita.numeroHabitacion=int.Parse(txtNumHab.Text);
+                    visita.parentesco=txtParentesco.Text;*/
+                    string nombre = txtNombre.Text;
+                    string apellido = txtApellido.Text;
+                    int dni = int.Parse(txtDNI.Text);
+                    int edad = int.Parse(txtEdad.Text);
+                    int numeroHabitacion = int.Parse(txtNumHab.Text);
+                    string parentesco = txtParentesco.Text;
+                    Visita nuevaVisita =new Visita(nombre, apellido, edad, dni, visita.paciente, numeroHabitacion, parentesco);
+                    this.lista[indice]=nuevaVisita;
+                    
+                    this.Actualizar();
+                }
+
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -78,42 +119,38 @@ namespace WinFormLogin
             if (lstPac.SelectedIndex != -1)
             {
                 int indice = this.lstPac.SelectedIndex;
-
-
-                Visita visita = this.lista[indice];
                 lista.RemoveAt(indice);
                 this.Actualizar();
             }
         }
-        /**private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            // Check if an item is selected
-            if (lstPac.SelectedIndex != -1)
-            {
-                // Remove the selected item from the list
-                int indice = lstPac.SelectedIndex;
-                Visita visita = lista[indice];
-                lista.Remove(visita);
-
-                // Update the ListBox by setting the DataSource again
-                lstPac.DataSource = null;
-                lstPac.DataSource = lista;
-
-                // Optionally, you can clear the selection
-                lstPac.ClearSelected();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una visita para eliminar.");
-            }
-        }*/
+        
         private void Actualizar()
         {
             this.lstPac.Items.Clear();
             foreach (Visita visita in lista)
             {
-                lstPac.Items.Add(visita.ToString());
+                lstPac.Items.Add(visita.Mostrar());
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAceptarCambio_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

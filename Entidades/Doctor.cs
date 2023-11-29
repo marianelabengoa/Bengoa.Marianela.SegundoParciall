@@ -51,15 +51,12 @@ namespace Entidades
         /// <param name="edad"></param>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public override string Mostrar(string nombre, string apellido, int edad, int dni)
+        public override string Mostrar()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("especializacion: " + this.especializacion);
-            sb.AppendLine("universidad: " + this.universidad);
-            sb.AppendLine("sueldo: " + this.sueldo);
+            string sb=("especializacion: " + this.especializacion + ", universidad: " + this.universidad + ", sueldo: " + this.sueldo);
 
             sb.ToString();
-            return base.Mostrar(nombre, apellido, edad, dni) + sb;
+            return base.Mostrar() + sb;
         }
         /// <summary>
         /// valida si el objeto es doctor 

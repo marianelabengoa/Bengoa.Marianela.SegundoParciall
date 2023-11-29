@@ -1,4 +1,4 @@
-﻿/*using Entidades;
+﻿using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,64 +17,39 @@ namespace WinFormLogin
         public FormOrdenarPac(ListaPacientes pacientes)
         {
             InitializeComponent();
-            //this.lista = pacientes;
-            lstPacOrd.DataSource = pacientes;
+            this.lista = pacientes;
+            //lstPacOrd.DataSource = pacientes;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            lstPacOrd.DataSource = lista.OrdenarPorEdadAscendente;
+            lista.OrdenarPorEdadAscendente();
+            Actualizar();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            lstPacOrd.DataSource=lista.OrdenarPorEdadDescendente;
+            //lista.OrdenarPorEdadDescendente();
+            //this.lista = lista.OrdenarPorEdadAscendente();
+            Actualizar();
         }
-    }
-}
-*/
-
-using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace WinFormLogin
-{
-    public partial class FormOrdenarPac : Form
-    {
-        private List<Paciente> lista;
-
-        public FormOrdenarPac(ListaPacientes pacientes)
+        private void Actualizar()
         {
-            InitializeComponent();
-
-            // Convierte la ListaPacientes a una lista de Paciente
-            //this.lista = pacientes;
-
-            // Asigna la lista al DataSource del ListBox
-            lstPacOrd.DataSource = lista;
+            this.lstPacOrd.Items.Clear();
+            foreach (Paciente paciente in lista)
+            {
+                lstPacOrd.Items.Add(paciente.Mostrar());
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void lstPacOrd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Ordena la lista por edad ascendente
-            lista = lista.OrderBy(p => p.Edad).ToList();
-
-            // Actualiza el DataSource del ListBox
-            lstPacOrd.DataSource = null;
-            lstPacOrd.DataSource = lista;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void FormOrdenarPac_Load(object sender, EventArgs e)
         {
-            // Ordena la lista por edad descendente
-            lista = lista.OrderByDescending(p => p.Edad).ToList();
+            Actualizar();
 
-            // Actualiza el DataSource del ListBox
-            lstPacOrd.DataSource = null;
-            lstPacOrd.DataSource = lista;
         }
     }
 }

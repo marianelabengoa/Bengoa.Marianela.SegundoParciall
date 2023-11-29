@@ -31,7 +31,7 @@
             SuspendLayout();
             // 
             // FormVisita
-            // 
+            //
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
@@ -57,7 +57,7 @@
         private Label label5;
         private TextBox txtVisitaPacNombre;
         private TextBox txtVisitaPacApellido;
-        private Label label6;
+        //protected Label label6;
         private Label label7;
         private Button btnVerVis;
     }
