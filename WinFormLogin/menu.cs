@@ -16,9 +16,11 @@ namespace WinFormLogin
         private string[] imagenes = { @"..\..\..\imagen11.jpg", @"..\..\..\imagen22.jpg", @"..\..\..\imagen33.jpg" };
         private int indiceActual = 0;
         private Task carruselTask;
-
+        private bool parpadeoActivo = false;
+        private CancellationTokenSource cancellationTokenSource;
         private Main mainForm;
         List<Visita> listaV;
+        private delegate void ActualizarLabelDelegate();
         public menu()
         {
             InitializeComponent();
@@ -82,6 +84,7 @@ namespace WinFormLogin
                 carruselTask?.Wait(); // Espera a que la tarea termine antes de cerrar
                 carruselTask?.Dispose();
             }
+            DetenerParpadeo();
         }
 
         private void btnCerrarApp_Click(object sender, EventArgs e)
@@ -93,6 +96,7 @@ namespace WinFormLogin
             {
                 // Detiene la tarea cuando se cierra el formulario
                 carruselTask?.Dispose();
+                DetenerParpadeo();
                 Application.Exit();
             }
         }
@@ -131,9 +135,8 @@ namespace WinFormLogin
         private void menu_Load(object sender, EventArgs e)
         {
             MostrarImagenActual();
-
-            // Inicia la tarea del carrusel en segundo plano
             IniciarCarrusel();
+            IniciarParpadeo();
         }
         private void MostrarImagenActual()
         {
@@ -170,6 +173,172 @@ namespace WinFormLogin
                 }
             });
         }
-            
+        private void Parpadear()
+        {
+            while (parpadeoActivo)
+            {
+                // Modificar la interfaz de usuario desde el hilo principal
+                ActualizarLabel();
+
+                // Esperar un tiempo antes de alternar de nuevo
+                //Task.Delay(300).Wait(); // Puedes ajustar el tiempo de espera según tus preferencias
+                if (lblBienvenido.Visible==false)
+                {
+                    Task.Delay(200).Wait();
+                }
+                else
+                {
+                    Task.Delay(600).Wait();
+                }
+            }
+        }
+        private void ActualizarLabel()
+        {
+            if (lblBienvenido.InvokeRequired)
+            {
+                // Si estamos en un hilo diferente al principal, usar BeginInvoke
+                lblBienvenido.BeginInvoke(new ActualizarLabelDelegate(ActualizarLabel));
+            }
+            else
+            {
+                // Modificar la interfaz de usuario desde el hilo principal
+                lblBienvenido.Visible = !lblBienvenido.Visible;
+            }
+        }
+        /*private async void IniciarParpadeo()
+        {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                parpadeoActivo = true;
+
+                // Inicia un bucle en un hilo separado usando Task.Run
+                await Task.Run(() => Parpadear(), cancellationTokenSource.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                // No hacer nada si la tarea se cancela
+            }
+        }*/
+        /*private async void IniciarParpadeo()
+        {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                parpadeoActivo = true;
+
+                // Inicia un bucle en un hilo separado usando Task.Run
+                await Task.Run(async () =>
+                {
+                    while (parpadeoActivo)
+                    {
+                        // Alternar la visibilidad del Label
+                        label1.Visible = !label1.Visible;
+
+                        // Esperar un tiempo antes de alternar de nuevo
+                        await Task.Delay(500); // Puedes ajustar el tiempo de espera según tus preferencias
+                    }
+                }, cancellationTokenSource.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                // No hacer nada si la tarea se cancela
+            }
+        }*/
+        private async void IniciarParpadeo()
+        {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                parpadeoActivo = true;
+
+                // Inicia un bucle en un hilo separado usando Task.Run
+                await Task.Run(() => Parpadear(), cancellationTokenSource.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                // No hacer nada si la tarea se cancela
+            }
+        }
+        private void DetenerParpadeo()
+        {
+            // Detener el parpadeo estableciendo la bandera a false y cancelando la tarea
+            parpadeoActivo = false;
+            cancellationTokenSource.Cancel();
+        }
     }
 }
+
+
+
+
+/*
+ using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ParpadeoLabel
+{
+    public partial class Form1 : Form
+    {
+        private bool parpadeoActivo = false;
+        private CancellationTokenSource cancellationTokenSource;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Iniciar el parpadeo cuando se carga el formulario
+            IniciarParpadeo();
+        }
+
+        private async void IniciarParpadeo()
+        {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                parpadeoActivo = true;
+
+                // Inicia un bucle en un hilo separado usando Task.Run
+                await Task.Run(async () =>
+                {
+                    while (parpadeoActivo)
+                    {
+                        // Alternar la visibilidad del Label
+                        label1.Visible = !label1.Visible;
+
+                        // Esperar un tiempo antes de alternar de nuevo
+                        await Task.Delay(500); // Puedes ajustar el tiempo de espera según tus preferencias
+                    }
+                }, cancellationTokenSource.Token);
+            }
+            catch (TaskCanceledException)
+            {
+                // No hacer nada si la tarea se cancela
+            }
+        }
+
+        private void DetenerParpadeo()
+        {
+            // Detener el parpadeo estableciendo la bandera a false y cancelando la tarea
+            parpadeoActivo = false;
+            cancellationTokenSource.Cancel();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Asegurarse de detener el parpadeo antes de cerrar el formulario
+            DetenerParpadeo();
+        }
+    }
+}
+
+ */
