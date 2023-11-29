@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormLogin", "..\WinFormLogin\WinFormLogin.csproj", "{0BB866E4-3217-4396-80C7-69914C0E3DF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\Test\Test.csproj", "{2DFD225B-F9E1-475A-8B86-484CA33D2672}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0BB866E4-3217-4396-80C7-69914C0E3DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB866E4-3217-4396-80C7-69914C0E3DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BB866E4-3217-4396-80C7-69914C0E3DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFD225B-F9E1-475A-8B86-484CA33D2672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFD225B-F9E1-475A-8B86-484CA33D2672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFD225B-F9E1-475A-8B86-484CA33D2672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFD225B-F9E1-475A-8B86-484CA33D2672}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
