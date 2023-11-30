@@ -94,3 +94,4 @@ C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\De
 C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.FormModificarVisita.resources
 C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.FormOrdenarPac.resources
 C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.Properties.Resources.resources
+C:\Users\manue\source\repos\Bengoa.Marianela.SegundoParcial-\WinFormLogin\obj\Debug\net6.0-windows\WinFormLogin.FormEvaluacion.resources
