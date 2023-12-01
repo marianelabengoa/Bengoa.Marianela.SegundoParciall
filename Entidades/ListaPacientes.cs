@@ -45,8 +45,9 @@ namespace Entidades
         /// <returns></returns>
         public static bool operator ==(ListaPacientes lista, Paciente paciente)
         {
-            return (lista==paciente);
+            return lista.pacientes.Contains(paciente);
         }
+
         /// <summary>
         /// operador != que valida si la lista no tiene al paciente
         /// </summary>
@@ -64,7 +65,7 @@ namespace Entidades
         /// <param name="lista"></param>
         /// <param name="paciente"></param>
         /// <returns></returns>
-        public static bool operator +(ListaPacientes lista, Paciente paciente)
+        /*public static bool operator +(ListaPacientes lista, Paciente paciente)
         {
             if (lista.pacientes.Contains(paciente))
             {
@@ -75,7 +76,13 @@ namespace Entidades
                 lista.pacientes.Add(paciente);
                 return true;
             }
+        }*/
+        public static bool operator +(ListaPacientes lista, Paciente paciente)
+        {
+            lista.Agregar(paciente);
+            return true;
         }
+
         /// <summary>
         /// sobrecarga operador - que elimina si ya lo tiene
         /// </summary>
@@ -156,5 +163,10 @@ namespace Entidades
         {
             pacientes.Add(p);
         }
+        public List<Paciente> Obtener()
+        {
+            return pacientes;
+        }
+        
     }
 }

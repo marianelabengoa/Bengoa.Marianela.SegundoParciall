@@ -71,7 +71,7 @@
             lstPacOrd.Name = "lstPacOrd";
             lstPacOrd.Size = new Size(1536, 532);
             lstPacOrd.TabIndex = 3;
-            lstPacOrd.SelectedIndexChanged += lstPacOrd_SelectedIndexChanged;
+            //lstPacOrd.SelectedIndexChanged += lstPacOrd_SelectedIndexChanged;
             // 
             // FormOrdenarPac
             // 

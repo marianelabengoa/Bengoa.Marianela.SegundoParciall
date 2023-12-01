@@ -34,6 +34,7 @@ namespace WinFormLogin
 
         private void btnAgregarVis_Click(object sender, EventArgs e)
         {
+            Main main=new Main();
             if (Main.lista.Verificar() == true)
             {
                 FormVisita visita = new FormVisita();
@@ -115,6 +116,7 @@ namespace WinFormLogin
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            Main main = new Main();
             FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
             formOrdenarPac.Show();
         }
