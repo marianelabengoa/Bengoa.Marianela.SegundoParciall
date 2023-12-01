@@ -37,6 +37,7 @@
             // 
             // btnAceptar
             // 
+            btnAceptar.Cursor = Cursors.Hand;
             btnAceptar.Location = new Point(317, 474);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(225, 69);
@@ -90,7 +91,7 @@
             Controls.Add(btnAceptar);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Log in";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

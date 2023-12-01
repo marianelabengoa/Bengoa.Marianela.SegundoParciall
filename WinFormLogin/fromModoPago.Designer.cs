@@ -38,6 +38,7 @@
             // 
             // btnIngresoModoPago
             // 
+            btnIngresoModoPago.Cursor = Cursors.Hand;
             btnIngresoModoPago.Location = new Point(335, 565);
             btnIngresoModoPago.Name = "btnIngresoModoPago";
             btnIngresoModoPago.Size = new Size(225, 69);
@@ -51,36 +52,36 @@
             label1.AutoSize = true;
             label1.Location = new Point(24, 32);
             label1.Name = "label1";
-            label1.Size = new Size(847, 48);
+            label1.Size = new Size(873, 48);
             label1.TabIndex = 1;
-            label1.Text = "El paciente va a pagar con debito,credito, oefectivo?";
+            label1.Text = "¿El paciente va a pagar con debito,credito, o efectivo?";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(366, 184);
             label2.Name = "label2";
-            label2.Size = new Size(163, 48);
+            label2.Size = new Size(180, 48);
             label2.TabIndex = 2;
-            label2.Text = "F: Efetivo";
+            label2.Text = "F: Efectivo";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(361, 262);
             label3.Name = "label3";
-            label3.Size = new Size(172, 48);
+            label3.Size = new Size(177, 48);
             label3.TabIndex = 3;
-            label3.Text = "C: credito";
+            label3.Text = "C: Credito";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(364, 347);
             label4.Name = "label4";
-            label4.Size = new Size(166, 48);
+            label4.Size = new Size(170, 48);
             label4.TabIndex = 4;
-            label4.Text = "D: debito";
+            label4.Text = "D: Debito";
             // 
             // txtModoPago
             // 
@@ -93,7 +94,7 @@
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(895, 681);
+            ClientSize = new Size(910, 681);
             Controls.Add(txtModoPago);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -103,6 +104,7 @@
             Name = "fromModoPago";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += fromModoPago_Load;
             ResumeLayout(false);
             PerformLayout();
         }

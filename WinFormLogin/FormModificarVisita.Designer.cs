@@ -50,6 +50,7 @@
             // 
             // btnAceptar
             // 
+            btnAceptar.Cursor = Cursors.Hand;
             btnAceptar.Location = new Point(57, 904);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(225, 69);
@@ -60,6 +61,7 @@
             // 
             // btnModificar
             // 
+            btnModificar.Cursor = Cursors.Hand;
             btnModificar.Location = new Point(698, 904);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(225, 69);
@@ -70,6 +72,7 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Location = new Point(1033, 904);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(225, 69);
@@ -89,6 +92,7 @@
             // 
             // btnAceptarCambio
             // 
+            btnAceptarCambio.Cursor = Cursors.Hand;
             btnAceptarCambio.Location = new Point(1535, 904);
             btnAceptarCambio.Name = "btnAceptarCambio";
             btnAceptarCambio.Size = new Size(503, 69);
@@ -229,7 +233,7 @@
             Controls.Add(btnModificar);
             Controls.Add(btnAceptar);
             Name = "FormModificarVisita";
-            Text = "FormModificarVisita";
+            Text = "Visitas en el establecimiento";
             Load += FormModificarVisita_Load;
             ResumeLayout(false);
             PerformLayout();

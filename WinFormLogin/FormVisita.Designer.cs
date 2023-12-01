@@ -30,14 +30,22 @@
         {
             SuspendLayout();
             // 
+            // btnIngresar
+            // 
+            btnIngresar.Cursor = Cursors.Hand;
+            // 
+            // btnCancelIngreso
+            // 
+            btnCancelIngreso.Cursor = Cursors.Hand;
+            // 
             // FormVisita
-            //
+            // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(876, 1361);
+            ClientSize = new Size(876, 1230);
             Name = "FormVisita";
-            Text = "FormVisita";
+            Text = "Visita";
             Load += FormVisita_Load;
             ResumeLayout(false);
             PerformLayout();

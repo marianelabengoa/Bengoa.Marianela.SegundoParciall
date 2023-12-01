@@ -38,7 +38,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(222, 52);
+            label6.Location = new Point(222, 85);
             label6.Name = "label6";
             label6.Size = new Size(356, 48);
             label6.TabIndex = 13;
@@ -47,7 +47,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(222, 256);
+            label7.Location = new Point(222, 291);
             label7.Name = "label7";
             label7.Size = new Size(356, 48);
             label7.TabIndex = 14;
@@ -55,7 +55,7 @@
             // 
             // txtVisitaPacNombre
             // 
-            txtVisitaPacNombre.Location = new Point(139, 141);
+            txtVisitaPacNombre.Location = new Point(139, 152);
             txtVisitaPacNombre.Name = "txtVisitaPacNombre";
             txtVisitaPacNombre.Size = new Size(522, 55);
             txtVisitaPacNombre.TabIndex = 15;
@@ -70,11 +70,12 @@
             // 
             // btnAceptarnom
             // 
+            btnAceptarnom.Cursor = Cursors.Hand;
             btnAceptarnom.Location = new Point(288, 488);
             btnAceptarnom.Name = "btnAceptarnom";
             btnAceptarnom.Size = new Size(225, 69);
             btnAceptarnom.TabIndex = 17;
-            btnAceptarnom.Text = "aceptar";
+            btnAceptarnom.Text = "Aceptar";
             btnAceptarnom.UseVisualStyleBackColor = true;
             btnAceptarnom.Click += btnAceptarnom_Click;
             // 
@@ -89,7 +90,8 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Name = "FormNomPac";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Nombre y apellido del paciente";
             ResumeLayout(false);
             PerformLayout();
         }

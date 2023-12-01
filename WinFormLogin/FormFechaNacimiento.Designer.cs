@@ -64,9 +64,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(54, 76);
             label1.Name = "label1";
-            label1.Size = new Size(708, 48);
+            label1.Size = new Size(709, 48);
             label1.TabIndex = 3;
-            label1.Text = "ingrese la fecha de nacimiento del paciente";
+            label1.Text = "Ingrese la fecha de nacimiento del paciente";
             // 
             // label2
             // 
@@ -97,6 +97,7 @@
             // 
             // btnAceptarFecha
             // 
+            btnAceptarFecha.Cursor = Cursors.Hand;
             btnAceptarFecha.Location = new Point(265, 505);
             btnAceptarFecha.Name = "btnAceptarFecha";
             btnAceptarFecha.Size = new Size(225, 69);
@@ -120,7 +121,7 @@
             Controls.Add(txtDia);
             Name = "FormFechaNacimiento";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormFechaNacimiento";
+            Text = "Fecha de nacimiento";
             ResumeLayout(false);
             PerformLayout();
         }

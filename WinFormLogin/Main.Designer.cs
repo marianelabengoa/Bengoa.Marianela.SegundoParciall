@@ -56,7 +56,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(426, 153);
+            label2.Location = new Point(407, 153);
             label2.Name = "label2";
             label2.Size = new Size(152, 48);
             label2.TabIndex = 1;
@@ -65,7 +65,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(426, 333);
+            label3.Location = new Point(407, 333);
             label3.Name = "label3";
             label3.Size = new Size(152, 48);
             label3.TabIndex = 2;
@@ -74,7 +74,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(426, 527);
+            label4.Location = new Point(442, 527);
             label4.Name = "label4";
             label4.Size = new Size(82, 48);
             label4.TabIndex = 3;
@@ -83,7 +83,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(426, 721);
+            label5.Location = new Point(434, 721);
             label5.Name = "label5";
             label5.Size = new Size(98, 48);
             label5.TabIndex = 4;
@@ -92,7 +92,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(305, 907);
+            label6.Location = new Point(295, 907);
             label6.Name = "label6";
             label6.Size = new Size(376, 48);
             label6.TabIndex = 5;
@@ -135,6 +135,7 @@
             // 
             // btnIngresar
             // 
+            btnIngresar.Cursor = Cursors.Hand;
             btnIngresar.Location = new Point(151, 1104);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(225, 69);
@@ -145,6 +146,7 @@
             // 
             // btnCancelIngreso
             // 
+            btnCancelIngreso.Cursor = Cursors.Hand;
             btnCancelIngreso.Location = new Point(571, 1104);
             btnCancelIngreso.Name = "btnCancelIngreso";
             btnCancelIngreso.Size = new Size(225, 69);

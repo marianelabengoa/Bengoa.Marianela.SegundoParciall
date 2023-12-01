@@ -70,6 +70,11 @@ namespace WinFormLogin
                 e.Cancel = true; // Cancela el cierre del formulario
             }
         }
+
+        private void fromModoPago_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

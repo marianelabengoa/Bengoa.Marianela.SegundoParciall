@@ -36,22 +36,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(42, 24);
             label1.Name = "label1";
-            label1.Size = new Size(759, 48);
+            label1.Size = new Size(770, 48);
             label1.TabIndex = 0;
-            label1.Text = "ingrese el parentesco que tienecon el paciente";
+            label1.Text = "Ingrese el parentesco que tiene con el paciente";
             // 
             // txtParentesco
             // 
-            txtParentesco.Location = new Point(160, 122);
+            txtParentesco.Location = new Point(187, 122);
             txtParentesco.Name = "txtParentesco";
             txtParentesco.Size = new Size(480, 55);
             txtParentesco.TabIndex = 1;
             // 
             // btnParentesco
             // 
-            btnParentesco.Location = new Point(294, 284);
+            btnParentesco.Cursor = Cursors.Hand;
+            btnParentesco.Location = new Point(315, 284);
             btnParentesco.Name = "btnParentesco";
             btnParentesco.Size = new Size(225, 69);
             btnParentesco.TabIndex = 2;
@@ -63,13 +64,13 @@
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 403);
+            ClientSize = new Size(855, 403);
             Controls.Add(btnParentesco);
             Controls.Add(txtParentesco);
             Controls.Add(label1);
             Name = "FormParentesco";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormParentesco";
+            Text = "Parentesco";
             ResumeLayout(false);
             PerformLayout();
         }

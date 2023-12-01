@@ -36,6 +36,7 @@
             // 
             // btnAceptarDoctores
             // 
+            btnAceptarDoctores.Cursor = Cursors.Hand;
             btnAceptarDoctores.Location = new Point(457, 667);
             btnAceptarDoctores.Name = "btnAceptarDoctores";
             btnAceptarDoctores.Size = new Size(225, 69);
@@ -48,9 +49,9 @@
             // 
             lstDoctores.FormattingEnabled = true;
             lstDoctores.ItemHeight = 48;
-            lstDoctores.Location = new Point(41, 195);
+            lstDoctores.Location = new Point(12, 183);
             lstDoctores.Name = "lstDoctores";
-            lstDoctores.Size = new Size(1151, 388);
+            lstDoctores.Size = new Size(1201, 436);
             lstDoctores.TabIndex = 1;
             // 
             // label1
@@ -75,6 +76,7 @@
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1225, 786);
             Controls.Add(label2);
             Controls.Add(label1);

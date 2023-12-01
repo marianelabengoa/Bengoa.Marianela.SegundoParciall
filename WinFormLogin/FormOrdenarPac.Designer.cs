@@ -36,6 +36,7 @@
             // 
             // btnAceptar
             // 
+            btnAceptar.Cursor = Cursors.Hand;
             btnAceptar.Location = new Point(49, 637);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(225, 69);
@@ -45,6 +46,7 @@
             // 
             // btnAsc
             // 
+            btnAsc.Cursor = Cursors.Hand;
             btnAsc.Location = new Point(656, 637);
             btnAsc.Name = "btnAsc";
             btnAsc.Size = new Size(396, 69);
@@ -55,6 +57,7 @@
             // 
             // btnDes
             // 
+            btnDes.Cursor = Cursors.Hand;
             btnDes.Location = new Point(1122, 637);
             btnDes.Name = "btnDes";
             btnDes.Size = new Size(389, 69);
@@ -83,7 +86,8 @@
             Controls.Add(btnAsc);
             Controls.Add(btnAceptar);
             Name = "FormOrdenarPac";
-            Text = "FormOrdenarPac";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Ordenar pacientes por edad";
             Load += FormOrdenarPac_Load;
             ResumeLayout(false);
         }

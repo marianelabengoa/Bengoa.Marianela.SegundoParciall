@@ -61,6 +61,7 @@
             // 
             // btnAceptarObra
             // 
+            btnAceptarObra.Cursor = Cursors.Hand;
             btnAceptarObra.Location = new Point(279, 477);
             btnAceptarObra.Name = "btnAceptarObra";
             btnAceptarObra.Size = new Size(225, 69);
@@ -80,7 +81,7 @@
             Controls.Add(txtObraSocial);
             Name = "FormObraSocial";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormObraSocial";
+            Text = "Obra Social";
             ResumeLayout(false);
             PerformLayout();
         }

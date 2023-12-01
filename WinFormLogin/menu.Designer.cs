@@ -42,6 +42,7 @@
             // 
             // btnAgregarPac
             // 
+            btnAgregarPac.Cursor = Cursors.Hand;
             btnAgregarPac.Location = new Point(50, 266);
             btnAgregarPac.Name = "btnAgregarPac";
             btnAgregarPac.Size = new Size(474, 69);
@@ -52,6 +53,7 @@
             // 
             // btnAgregarVis
             // 
+            btnAgregarVis.Cursor = Cursors.Hand;
             btnAgregarVis.Location = new Point(568, 266);
             btnAgregarVis.Name = "btnAgregarVis";
             btnAgregarVis.Size = new Size(467, 69);
@@ -71,6 +73,7 @@
             // 
             // btnCerrarApp
             // 
+            btnCerrarApp.Cursor = Cursors.Hand;
             btnCerrarApp.Location = new Point(304, 476);
             btnCerrarApp.Name = "btnCerrarApp";
             btnCerrarApp.Size = new Size(467, 69);
@@ -81,6 +84,7 @@
             // 
             // btnModificar
             // 
+            btnModificar.Cursor = Cursors.Hand;
             btnModificar.Location = new Point(50, 359);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(467, 69);
@@ -91,6 +95,7 @@
             // 
             // btnModVis
             // 
+            btnModVis.Cursor = Cursors.Hand;
             btnModVis.Location = new Point(568, 359);
             btnModVis.Name = "btnModVis";
             btnModVis.Size = new Size(467, 69);
@@ -101,6 +106,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Location = new Point(1221, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(500, 500);

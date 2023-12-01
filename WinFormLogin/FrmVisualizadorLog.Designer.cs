@@ -33,7 +33,7 @@
             // 
             // txtLog
             // 
-            txtLog.Location = new Point(90, 40);
+            txtLog.Location = new Point(54, 50);
             txtLog.Name = "txtLog";
             txtLog.Size = new Size(2692, 55);
             txtLog.TabIndex = 0;
@@ -45,7 +45,7 @@
             ClientSize = new Size(2834, 754);
             Controls.Add(txtLog);
             Name = "FrmVisualizadorLog";
-            Text = "FrmVisualizadorLog";
+            Text = "Visualizador Log";
             ResumeLayout(false);
             PerformLayout();
         }
