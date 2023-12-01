@@ -71,12 +71,12 @@
             lstPacOrd.Name = "lstPacOrd";
             lstPacOrd.Size = new Size(1536, 532);
             lstPacOrd.TabIndex = 3;
-            //lstPacOrd.SelectedIndexChanged += lstPacOrd_SelectedIndexChanged;
             // 
             // FormOrdenarPac
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1562, 772);
             Controls.Add(lstPacOrd);
             Controls.Add(btnDes);

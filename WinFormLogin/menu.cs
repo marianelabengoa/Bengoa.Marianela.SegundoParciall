@@ -118,6 +118,7 @@ namespace WinFormLogin
         {
             Main main = new Main();
             FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
+
             formOrdenarPac.Show();
         }
 
@@ -137,6 +138,8 @@ namespace WinFormLogin
             MostrarImagenActual();
             IniciarCarrusel();
             IniciarParpadeo();
+            this.Activated += new EventHandler(menu_Activated);
+            this.Deactivate += new EventHandler(menu_Deactivate);
         }
         private void MostrarImagenActual()
         {
@@ -188,6 +191,7 @@ namespace WinFormLogin
         {
             if (lblBienvenido.InvokeRequired)
             {
+                
                 lblBienvenido.BeginInvoke(new ActualizarLabelDelegate(ActualizarLabel));
             }
             else
@@ -215,76 +219,16 @@ namespace WinFormLogin
             parpadeoActivo = false;
             cancellationTokenSource.Cancel();
         }
-    }
-}
-
-
-
-
-/*
- using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace ParpadeoLabel
-{
-    public partial class Form1 : Form
-    {
-        private bool parpadeoActivo = false;
-        private CancellationTokenSource cancellationTokenSource;
-
-        public Form1()
+        private void menu_Activated(object sender, EventArgs e)
         {
-            InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Iniciar el parpadeo cuando se carga el formulario
+            // La aplicación ha vuelto a estar activa, reinicia el parpadeo
             IniciarParpadeo();
         }
 
-        private async void IniciarParpadeo()
+        private void menu_Deactivate(object sender, EventArgs e)
         {
-            cancellationTokenSource = new CancellationTokenSource();
-
-            try
-            {
-                parpadeoActivo = true;
-
-                // Inicia un bucle en un hilo separado usando Task.Run
-                await Task.Run(async () =>
-                {
-                    while (parpadeoActivo)
-                    {
-                        // Alternar la visibilidad del Label
-                        label1.Visible = !label1.Visible;
-
-                        // Esperar un tiempo antes de alternar de nuevo
-                        await Task.Delay(500); // Puedes ajustar el tiempo de espera según tus preferencias
-                    }
-                }, cancellationTokenSource.Token);
-            }
-            catch (TaskCanceledException)
-            {
-                // No hacer nada si la tarea se cancela
-            }
-        }
-
-        private void DetenerParpadeo()
-        {
-            // Detener el parpadeo estableciendo la bandera a false y cancelando la tarea
-            parpadeoActivo = false;
-            cancellationTokenSource.Cancel();
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Asegurarse de detener el parpadeo antes de cerrar el formulario
+            // La aplicación se ha desactivado, detén el parpadeo
             DetenerParpadeo();
         }
     }
 }
-
- */
