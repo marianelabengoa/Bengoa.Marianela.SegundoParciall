@@ -11,7 +11,7 @@ Resumen: Esta app permite llevar un registro de las personas que ingresan al hos
 		Se valida que la visita venga a visitar a alguien real, y se puede elegir que doctor atiende al paciente.
 		Simularia ser como la parte administrativa del hospital, manejando cobros con distintos medios de pago, 
 		costos que varian segun la obra social o prepaga que posea el cliente. 
+  		Agregue unit testing que prueba que las clases de la biblioteca Entidades esten bien, Task que agregan
+    		funcionalidades mas esteticas, y Eventos que hacen mas practica a la app. Use una interfaz para agregar un formulario de evaluacion de 			consulta.
 
-Diagrama de clases: tuve que hacer el diagrama a mano en una pagina web ya que mi visual no tiene la opcion
-					para hacerlo directamente
-[DiagramaClase.pdf](https://github.com/marianelabengoa/Bengoa.Marianela.PrimerParcial/files/13291431/DiagramaClase.pdf)
+Diagrama de clases: 
