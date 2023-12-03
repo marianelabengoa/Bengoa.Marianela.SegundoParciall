@@ -48,7 +48,7 @@ namespace Entidades
             return ret;
         }
 
-        public List<Paciente> ObtenerListaDato(Paciente paciente)
+        public List<Paciente> ObtenerListaPacientes()
         {
             List<Paciente> lista = new List<Paciente>();
             try
@@ -63,7 +63,7 @@ namespace Entidades
 
                 while (this.lector.Read())
                 {
-                    //Paciente paciente = pac
+                    Paciente paciente = new Paciente();
                     paciente.Nombre = this.lector[0].ToString();
                     paciente.Apellido = this.lector[1].ToString();
                     paciente.Edad = (int)this.lector[2];
@@ -91,14 +91,25 @@ namespace Entidades
             return lista;
         }
 
-        public bool AgregarDato(Paciente paciente)
+        
+        public bool AgregarPaciente(Paciente paciente)
         {
             bool retorno = false;
             try
             {
                 this.comando = new SqlCommand();
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = $"insert into dato (cadena, entero, flotante) values({dato.cadena}, {dato.entero}, {dato.flotante})";
+                this.comando.CommandText = "INSERT INTO Pacientes (Nombre, Apellido, Edad, DNI, numeroHabitacion, ObraSocial, FechaNacimiento) VALUES (@Nombre, @Apellido, @Edad, @Dni, @numeroHabitacion, @obraSocial, @fechaNacimiento)";
+
+                // Use parameters to avoid SQL injection
+                this.comando.Parameters.AddWithValue("@Nombre", paciente.Nombre);
+                this.comando.Parameters.AddWithValue("@Apellido", paciente.Apellido);
+                this.comando.Parameters.AddWithValue("@Edad", paciente.Edad);
+                this.comando.Parameters.AddWithValue("@Dni", paciente.Dni);
+                this.comando.Parameters.AddWithValue("@numeroHabitacion", paciente.numeroHabitacion);
+                this.comando.Parameters.AddWithValue("@obraSocial", paciente.obraSocial);
+                this.comando.Parameters.AddWithValue("@fechaNacimiento", paciente.fechaNacimiento);
+
                 this.comando.Connection = this.conexion;
 
                 this.conexion.Open();
@@ -112,7 +123,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-
+                // Handle or log the exception
             }
             finally
             {

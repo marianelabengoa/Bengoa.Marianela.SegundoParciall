@@ -42,6 +42,10 @@ namespace Entidades
         {
             this.fechaNacimiento = fechaNacimiento;
         }
+        public Paciente()
+        {
+
+        }
         /// <summary>
         /// metodo que simula que el paciente esta siendo atendido
         /// </summary>

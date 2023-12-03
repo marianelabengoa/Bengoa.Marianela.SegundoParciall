@@ -77,6 +77,10 @@ namespace Entidades
         {
             this.edad = edad;  
         }
+        public Persona()
+        {
+
+        }
         /// <summary>
         /// muestra los datos de la persona
         /// </summary>
