@@ -1,3 +1,4 @@
+![winformDiagram](https://github.com/marianelabengoa/Bengoa.Marianela.SegundoParciall/assets/124008963/70d302bc-8063-48a2-a848-af3b96bb21f8)
 # Bengoa.Marianela.PrimerParcial
 
 Titulo: CRUD - Hospital
