@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="WinFormLogin.FormVisita">
+    <Position X="5.25" Y="0.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAWAAIRAABACAAAACAAEABAAAAIAKAAEAAEA=</HashCode>
+      <FileName>FormVisita.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.Main">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <NestedTypes>
+      <Delegate Name="WinFormLogin.Main.CambiarColorDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Main.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAkGAUAxBAAAKABAACICAAAAQAAAAJAAEAAAA=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormDoctores">
+    <Position X="10" Y="1" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQQACAAAJAAAACgAAACBAAAABAAABAIAAQAAAA=</HashCode>
+      <FileName>FormDoctores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormEvaluacion">
+    <Position X="14.75" Y="0.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAIhAAACAAAJCgBACAQAQCAABAQAAAAAAAAJBAAAA=</HashCode>
+      <FileName>FormEvaluacion.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WinFormLogin.FormFechaNacimiento">
+    <Position X="18.75" Y="0.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAEqAAABAAgACAAQACAgAAAAAAAAAIAAABAAI=</HashCode>
+      <FileName>FormFechaNacimiento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormModificarVisita">
+    <Position X="0.5" Y="8.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAQQAGAAIBhABACAAAACSCAAAAAYABCYIAAACAA=</HashCode>
+      <FileName>FormModificarVisita.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormNomPac">
+    <Position X="5.5" Y="7.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiQAABCQAACAAABCAAAAAAAAAAACAAAAAEA=</HashCode>
+      <FileName>FormNomPac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.formNumHabitacion">
+    <Position X="5.5" Y="11.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAgCAAABAAAADQAAACAACAAAAACAAIAAAAAAA=</HashCode>
+      <FileName>formNumHabitacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormObraSocial">
+    <Position X="10.5" Y="7" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAgCAAAACAAAAQgAAAAgIQAAAAAA=</HashCode>
+      <FileName>FormObraSocial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormOrdenarPac">
+    <Position X="16.25" Y="6.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAASAAAAJABACBAAACAAEAAAAKADAABAAAIAA=</HashCode>
+      <FileName>FormOrdenarPac.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FormParentesco">
+    <Position X="10.5" Y="10.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAIJAAAACAAAACAAAAAAAEQAAIAAAAAAI=</HashCode>
+      <FileName>FormParentesco.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FrmLogin">
+    <Position X="16" Y="11.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>EAAAABACACAAABwAhACAAAACAAAAAQQAAAQAEAAAAAA=</HashCode>
+      <FileName>FrmLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.FrmVisualizadorLog">
+    <Position X="21" Y="6" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACCAAAAAAAQCAAAACAAAAAAAAAAAYAAAAAAA=</HashCode>
+      <FileName>FrmVisualizadorLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.fromModoPago">
+    <Position X="21" Y="9.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAABIAAAiAAAACAAAAAAAAIAAIAAAAAAA=</HashCode>
+      <FileName>fromModoPago.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.menu">
+    <Position X="26" Y="0.75" Width="4.5" />
+    <NestedTypes>
+      <Delegate Name="WinFormLogin.menu.ActualizarLabelDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>menu.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAUAJQCQRDAAABBAGhDBAAACGACBAIAAIEAIIgBgCCQ=</HashCode>
+      <FileName>menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.Program">
+    <Position X="23.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinFormLogin.Usuario">
+    <Position X="23.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAQAAhAAAAIAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WinFormLogin.IEvaluacion">
+    <Position X="10.5" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>IEvaluacion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
