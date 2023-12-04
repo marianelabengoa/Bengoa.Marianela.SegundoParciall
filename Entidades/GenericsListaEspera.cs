@@ -10,6 +10,7 @@ namespace Entidades
     {
         private List<Visita> lista;
         private int capacidad;
+        private static int cont;
 
         public GenericsListaEspera(int capacidad)
         {
@@ -23,9 +24,10 @@ namespace Entidades
         public bool Agregar(Visita dato)
         {
 
-            if (this.lista.Count < this.capacidad)
+            if (GenericsListaEspera<Visita>.cont< this.capacidad)
             {
                 this.lista.Add(dato);
+                cont++;
                 return true;
             }
 
@@ -35,6 +37,11 @@ namespace Entidades
         {
             this.lista.Remove(dato);
             return true;
+        }
+
+        public List<Visita> ListaEspera()
+        {
+            return this.lista;
         }
     }
 }

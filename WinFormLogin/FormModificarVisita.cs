@@ -127,7 +127,7 @@ namespace WinFormLogin
         private void Actualizar()
         {
             this.lstPac.Items.Clear();
-            foreach (Visita visita in lista.Lista)
+            foreach (Visita visita in lista.ListaEspera())
             {
                 lstPac.Items.Add(visita.Mostrar());
             }
