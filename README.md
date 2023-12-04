@@ -1,4 +1,4 @@
-![winformDiagram](https://github.com/marianelabengoa/Bengoa.Marianela.SegundoParciall/assets/124008963/70d302bc-8063-48a2-a848-af3b96bb21f8)
+
 # Bengoa.Marianela.PrimerParcial
 
 Titulo: CRUD - Hospital
@@ -17,3 +17,4 @@ Resumen: Esta app permite llevar un registro de las personas que ingresan al hos
 
 Diagrama de clases: ![EntidadesDiagram](https://github.com/marianelabengoa/Bengoa.Marianela.SegundoParciall/assets/124008963/2db64f73-730c-4561-a465-5006ad142155)
 
+![winformDiagram](https://github.com/marianelabengoa/Bengoa.Marianela.SegundoParciall/assets/124008963/70d302bc-8063-48a2-a848-af3b96bb21f8)
