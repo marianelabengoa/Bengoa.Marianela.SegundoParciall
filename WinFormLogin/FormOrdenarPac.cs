@@ -63,6 +63,10 @@ namespace WinFormLogin
             Actualizar();
 
         }
+        public void Actualizar3()
+        {
+
+        }
     }
 }
 

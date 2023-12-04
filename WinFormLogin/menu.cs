@@ -116,8 +116,10 @@ namespace WinFormLogin
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
-            FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
+            //Main main = new Main();
+            //FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
+            AccesoDatos ado = new AccesoDatos();
+            FormOrdenarPac formOrdenarPac = new FormOrdenarPac(ado.ObtenerListaPacientes());
 
             formOrdenarPac.Show();
         }

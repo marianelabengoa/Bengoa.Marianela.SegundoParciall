@@ -110,14 +110,29 @@ namespace WinFormLogin
 
                 //MessageBox.Show($"{lista}");
 
-                /*AccesoDatos ad = new AccesoDatos();
+                AccesoDatos ad = new AccesoDatos();
 
-                if (ad.PruebaConexion())
+                /*if (ad.PruebaConexion())
                 {
                     MessageBox.Show("se conecto");
                 }
                 else { MessageBox.Show("no se conecto"); }*/
+                
+                ad.AgregarPaciente(paciente);
+                /*if (ad.AgregarPaciente(paciente))
 
+                {
+                    MessageBox.Show("si");
+                }
+                else
+                {
+                    MessageBox.Show("no");
+                }*/
+                ListaPacientes pac = ad.ObtenerListaPacientes();
+                /*foreach (Paciente item in pac)
+                {
+                    MessageBox.Show(item.ToString());
+                }*/
 
                 txtNombre.Text = string.Empty;
                 txtApellido.Text = string.Empty;

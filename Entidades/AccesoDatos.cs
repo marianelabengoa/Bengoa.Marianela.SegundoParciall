@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Entidades
 {
@@ -48,14 +49,15 @@ namespace Entidades
             return ret;
         }
 
-        public List<Paciente> ObtenerListaPacientes()
+        public ListaPacientes ObtenerListaPacientes()
         {
-            List<Paciente> lista = new List<Paciente>();
+            ListaPacientes lista = new ListaPacientes();
             try
             {
                 this.comando = new SqlCommand();
                 this.comando.CommandType = System.Data.CommandType.Text;
-                this.comando.CommandText = "select Nombre, Apellido, Edad, DNI, NumeroHabitacion, ObraSocial, FechaNacimiento from tabla_pacientes";
+                //this.comando.CommandText = "select Nombre, Apellido, Edad, DNI, NumeroHabitacion, ObraSocial, FechaNacimiento from tabla_pacientes";
+                this.comando.CommandText = "SELECT Nombre, Apellido, Edad, DNI, NumeroHabitacion FROM tabla_pacientes";
                 this.comando.Connection = this.conexion;
                 this.conexion.Open();
 
@@ -69,10 +71,10 @@ namespace Entidades
                     paciente.Edad = (int)this.lector[2];
                     paciente.Dni = (int)this.lector[3];
                     paciente.numeroHabitacion = (int)this.lector[4];
-                    paciente.obraSocial = (EObraSocial)this.lector[5];
-                    paciente.fechaNacimiento = (DateTime)this.lector[6];
+                    //paciente.obraSocial = (EObraSocial)this.lector[5];
+                    //paciente.fechaNacimiento = (DateTime)this.lector[6];
 
-                    lista.Add(paciente);
+                    lista.Agregar(paciente);
                 }
 
                 lector.Close();
@@ -91,8 +93,8 @@ namespace Entidades
             return lista;
         }
 
-        
-        public bool AgregarPaciente(Paciente paciente)
+
+        /*public bool AgregarPaciente(Paciente paciente)
         {
             bool retorno = false;
             try
@@ -133,6 +135,49 @@ namespace Entidades
                 }
             }
             return retorno;
+        }*/
+        public bool AgregarPaciente(Paciente paciente)
+        {
+            bool retorno = false;
+            try
+            {
+                // Open the connection
+                this.conexion.Open();
+
+                // Create a SqlCommand with parameters
+                this.comando = new SqlCommand();
+                this.comando.CommandType = CommandType.Text;
+                this.comando.CommandText = "INSERT INTO tabla_pacientes (Nombre, Apellido, DNI, Edad, NumeroHabitacion) " +
+                                           "VALUES (@nombre, @apellido, @dni, @edad, @numeroHabitacion)";
+                this.comando.Parameters.AddWithValue("@nombre", paciente.Nombre);
+                this.comando.Parameters.AddWithValue("@apellido", paciente.Apellido);
+                this.comando.Parameters.AddWithValue("@dni", paciente.Dni);
+                this.comando.Parameters.AddWithValue("@edad", paciente.Edad);
+                this.comando.Parameters.AddWithValue("@numeroHabitacion", paciente.numeroHabitacion);
+                this.comando.Connection = this.conexion;
+
+                // Execute the query
+                int filasAfectadas = this.comando.ExecuteNonQuery();
+
+                // Check if any rows were affected
+                if (filasAfectadas > 0)
+                {
+                    retorno = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (this.conexion.State == ConnectionState.Open)
+                {
+                    this.conexion.Close();
+                }
+            }
+            return retorno;
         }
+
     }
 }
