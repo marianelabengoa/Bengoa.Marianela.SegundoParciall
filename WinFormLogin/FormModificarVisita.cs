@@ -14,11 +14,11 @@ namespace WinFormLogin
 {
     public partial class FormModificarVisita : Form
     {
-        private GenericsListaEspera<Visita> lista;
+        public static GenericsListaEspera<Visita> lista;
         public FormModificarVisita(GenericsListaEspera<Visita> listVisita)
         {
             InitializeComponent();
-            this.lista = listVisita;
+            lista = listVisita;
             //lstPac.DataSource = listVisita;
         }
 
@@ -99,7 +99,7 @@ namespace WinFormLogin
                     int numeroHabitacion = int.Parse(txtNumHab.Text);
                     string parentesco = txtParentesco.Text;
                     Visita nuevaVisita =new Visita(nombre, apellido, edad, dni, visita.paciente, numeroHabitacion, parentesco);
-                    this.lista.Lista[indice]=nuevaVisita;
+                    lista.Lista[indice] = nuevaVisita;
                     
                     this.Actualizar();
                 }

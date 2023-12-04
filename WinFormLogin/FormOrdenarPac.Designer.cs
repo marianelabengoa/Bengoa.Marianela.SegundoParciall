@@ -37,9 +37,10 @@
             // btnAceptar
             // 
             btnAceptar.Cursor = Cursors.Hand;
-            btnAceptar.Location = new Point(49, 637);
+            btnAceptar.Location = new Point(17, 199);
+            btnAceptar.Margin = new Padding(1, 1, 1, 1);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(225, 69);
+            btnAceptar.Size = new Size(79, 22);
             btnAceptar.TabIndex = 0;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // btnAsc
             // 
             btnAsc.Cursor = Cursors.Hand;
-            btnAsc.Location = new Point(656, 637);
+            btnAsc.Location = new Point(230, 199);
+            btnAsc.Margin = new Padding(1, 1, 1, 1);
             btnAsc.Name = "btnAsc";
-            btnAsc.Size = new Size(396, 69);
+            btnAsc.Size = new Size(139, 22);
             btnAsc.TabIndex = 1;
             btnAsc.Text = "Ordenar ascendente";
             btnAsc.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // btnDes
             // 
             btnDes.Cursor = Cursors.Hand;
-            btnDes.Location = new Point(1122, 637);
+            btnDes.Location = new Point(393, 199);
+            btnDes.Margin = new Padding(1, 1, 1, 1);
             btnDes.Name = "btnDes";
-            btnDes.Size = new Size(389, 69);
+            btnDes.Size = new Size(136, 22);
             btnDes.TabIndex = 2;
             btnDes.Text = "Odenar descendente";
             btnDes.UseVisualStyleBackColor = true;
@@ -69,22 +72,24 @@
             // lstPacOrd
             // 
             lstPacOrd.FormattingEnabled = true;
-            lstPacOrd.ItemHeight = 48;
-            lstPacOrd.Location = new Point(12, 12);
+            lstPacOrd.ItemHeight = 15;
+            lstPacOrd.Location = new Point(4, 4);
+            lstPacOrd.Margin = new Padding(1, 1, 1, 1);
             lstPacOrd.Name = "lstPacOrd";
-            lstPacOrd.Size = new Size(1536, 532);
+            lstPacOrd.Size = new Size(540, 169);
             lstPacOrd.TabIndex = 3;
             // 
             // FormOrdenarPac
             // 
-            AutoScaleDimensions = new SizeF(20F, 48F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1562, 772);
+            ClientSize = new Size(571, 234);
             Controls.Add(lstPacOrd);
             Controls.Add(btnDes);
             Controls.Add(btnAsc);
             Controls.Add(btnAceptar);
+            Margin = new Padding(1, 1, 1, 1);
             Name = "FormOrdenarPac";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ordenar pacientes por edad";

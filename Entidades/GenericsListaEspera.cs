@@ -8,40 +8,44 @@ namespace Entidades
 {
     public class GenericsListaEspera<Visita> //where Visita : class, new()
     {
-        private List<Visita> lista;
+        private static List<Visita> lista;
         private int capacidad;
         private static int cont;
 
         public GenericsListaEspera(int capacidad)
         {
-            this.lista = new List<Visita>();
+            GenericsListaEspera<Visita>.lista = new List<Visita>();
             this.capacidad = capacidad;
         }
 
-        public List<Visita> Lista { get => this.lista; set => this.lista = value; }
+        public List<Visita> Lista { get => GenericsListaEspera<Visita>.lista; set => GenericsListaEspera<Visita>.lista = value; }
 
 
         public bool Agregar(Visita dato)
         {
 
-            if (GenericsListaEspera<Visita>.cont< this.capacidad)
+            if (GenericsListaEspera<Visita>.cont < this.capacidad)
             {
-                this.lista.Add(dato);
+                GenericsListaEspera<Visita>.lista.Add(dato);
                 cont++;
-                return true;
+                if(cont==lista.Count)
+                {
+                    return true;
+                }
+                
             }
 
             return false;
         }
         public bool Eliminar(Visita dato) 
         {
-            this.lista.Remove(dato);
+            GenericsListaEspera<Visita>.lista.Remove(dato);
             return true;
         }
 
         public List<Visita> ListaEspera()
         {
-            return this.lista;
+            return GenericsListaEspera<Visita>.lista;
         }
     }
 }

@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtLog = new TextBox();
+            richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
-            // txtLog
+            // richTextBox1
             // 
-            txtLog.Location = new Point(54, 50);
-            txtLog.Name = "txtLog";
-            txtLog.Size = new Size(2692, 55);
-            txtLog.TabIndex = 0;
+            richTextBox1.Location = new Point(12, 12);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(456, 210);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "";
             // 
             // FrmVisualizadorLog
             // 
-            AutoScaleDimensions = new SizeF(20F, 48F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2834, 754);
-            Controls.Add(txtLog);
+            ClientSize = new Size(480, 234);
+            Controls.Add(richTextBox1);
+            Margin = new Padding(1, 1, 1, 1);
             Name = "FrmVisualizadorLog";
             Text = "Visualizador Log";
+            Load += FrmVisualizadorLog_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private TextBox txtLog;
+        private RichTextBox richTextBox1;
     }
 }

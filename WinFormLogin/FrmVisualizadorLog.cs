@@ -18,13 +18,13 @@ namespace WinFormLogin
         }
         public void MostrarLog(string logContent)
         {
-            txtLog.Clear();
+            richTextBox1.Clear();
             string[] lineas = logContent.Split('\n');
 
             // Agrega cada línea al control TextBox
             foreach (string linea in lineas)
             {
-                txtLog.AppendText(linea + Environment.NewLine);
+                richTextBox1.AppendText(linea + Environment.NewLine);
             }
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -36,6 +36,11 @@ namespace WinFormLogin
             {
                 e.Cancel = true; // Cancela el cierre del formulario
             }
+        }
+
+        private void FrmVisualizadorLog_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

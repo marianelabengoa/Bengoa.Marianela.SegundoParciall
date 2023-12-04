@@ -34,12 +34,36 @@ namespace WinFormLogin
 
         private void btnAgregarVis_Click(object sender, EventArgs e)
         {
-            Main main=new Main();
+            Main main = new Main();
             if (Main.lista.Verificar() == true)
             {
                 FormVisita visita = new FormVisita();
                 listaV = visita.Lista();
-                DialogResult vis = visita.ShowDialog();
+                bool pacconf = true;
+
+                while (pacconf)
+                {
+                    DialogResult vis = visita.ShowDialog();
+
+                    if (vis == DialogResult.OK)
+                    {
+                        DialogResult paccon = MessageBox.Show("¿Desea ingresar otra visita?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (paccon == DialogResult.Yes)
+                        {
+                            pacconf = true;
+                        }
+                        else
+                        {
+                            pacconf = false;
+                        }
+                    }
+                    else
+                    {
+                        pacconf = false;
+                    }
+                }
+
             }
         }
 
@@ -81,7 +105,7 @@ namespace WinFormLogin
             }
             else
             {
-                carruselTask?.Wait(); 
+                carruselTask?.Wait();
                 carruselTask?.Dispose();
             }
             DetenerParpadeo();
@@ -179,7 +203,7 @@ namespace WinFormLogin
             {
                 ActualizarLabel();
 
-                if (lblBienvenido.Visible==false)
+                if (lblBienvenido.Visible == false)
                 {
                     Task.Delay(200).Wait();
                 }
@@ -193,7 +217,7 @@ namespace WinFormLogin
         {
             if (lblBienvenido.InvokeRequired)
             {
-                
+
                 lblBienvenido.BeginInvoke(new ActualizarLabelDelegate(ActualizarLabel));
             }
             else
@@ -201,7 +225,7 @@ namespace WinFormLogin
                 lblBienvenido.Visible = !lblBienvenido.Visible;
             }
         }
-        
+
         private async void IniciarParpadeo()
         {
             cancellationTokenSource = new CancellationTokenSource();
@@ -231,6 +255,18 @@ namespace WinFormLogin
         {
             // La aplicación se ha desactivado, detén el parpadeo
             DetenerParpadeo();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (StreamReader sr = new StreamReader(@"..\..\..\Usuarios.log"))
+
+            {
+                string logContent = sr.ReadToEnd();
+                FrmVisualizadorLog visualizador = new FrmVisualizadorLog();
+                visualizador.MostrarLog(logContent);
+                visualizador.ShowDialog();
+            }
         }
     }
 }
