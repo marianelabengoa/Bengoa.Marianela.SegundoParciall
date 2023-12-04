@@ -4080,19 +4080,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manue\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Test\\Test.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Test\\Test.csproj",
       "projectName": "Test",
-      "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Test\\Test.csproj",
-      "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Test\\obj\\",
+      "projectPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Test\\Test.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\manue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4106,8 +4106,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj"
+            "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj"
             }
           }
         }

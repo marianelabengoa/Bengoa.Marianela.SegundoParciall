@@ -19,7 +19,7 @@ namespace WinFormLogin
         private bool parpadeoActivo = false;
         private CancellationTokenSource cancellationTokenSource;
         private Main mainForm;
-        List<Visita> listaV;
+        GenericsListaEspera<Visita> listaV;
         private delegate void ActualizarLabelDelegate();
         public menu()
         {

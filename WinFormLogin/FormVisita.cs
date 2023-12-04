@@ -14,7 +14,8 @@ namespace WinFormLogin
 {
     public partial class FormVisita : Main
     {
-        public List<Visita> listaVisitas;
+        //public List<Visita> listaVisitas;
+        static GenericsListaEspera<Visita> listaVisitas;
 
         //public static List<Visita> Lista { get; internal set; }
 
@@ -23,7 +24,8 @@ namespace WinFormLogin
         public FormVisita()
         {
             InitializeComponent();
-            listaVisitas = new List<Visita>();
+            //listaVisitas = new List<Visita>();
+            listaVisitas = new GenericsListaEspera<Visita>(5);
             this.txtNumHabitacion.Hide();
             label6.Visible = false;
         }
@@ -89,6 +91,7 @@ namespace WinFormLogin
 
                     }
 
+
                     float monto = visita.Pagar(visita);
 
                     if (visita != null)
@@ -101,7 +104,7 @@ namespace WinFormLogin
                     MessageBox.Show(accion);
 
 
-                listaVisitas.Add(visita);
+                listaVisitas.Agregar(visita);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 }
@@ -130,7 +133,7 @@ namespace WinFormLogin
             FormModificarVisita formModificarVisita = new FormModificarVisita(listaVisitas);
             formModificarVisita.Show();
         }
-        public List<Visita> Lista()
+        public GenericsListaEspera<Visita> Lista()
         {
             return listaVisitas;
         }

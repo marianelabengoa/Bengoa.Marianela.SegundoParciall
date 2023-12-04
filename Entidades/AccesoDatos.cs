@@ -18,8 +18,8 @@ namespace Entidades
 
         static AccesoDatos()
         {
-            AccesoDatos.cadena_connexion = Properties.Resources.miConexion;
-            //cadena_connexion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Pacientes;Integrated Security=True;Trust Server Certificate=True";
+            //AccesoDatos.cadena_connexion = Properties.Resources.miConexion;
+            cadena_connexion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Pacientes;Integrated Security=True;Trust Server Certificate=True";
         }
         public AccesoDatos()
         {

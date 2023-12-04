@@ -231,23 +231,19 @@ namespace WinFormLogin
         {
             if (btnIngresar.InvokeRequired)
             {
-                // Si es necesario, invocar el método en el subproceso correcto
                 btnIngresar.Invoke(new CambiarColorDelegate(CambiarColorBoton), color);
             }
             else
             {
-                // Cambiar el color del botón
                 btnIngresar.BackColor = color;
             }
         }
         private void BtnIngresar_MouseBoton(object sender, EventArgs e)
         {
-            // Invoca el evento para cambiar el color del botón a verde
             CambiarColorEvent?.Invoke(Color.Green);
         }
         private void BtnCancel_MouseBoton(object sender, EventArgs e)
         {
-            // Invoca el evento para cambiar el color del botón a verde
             CambiarColorEvent?.Invoke(Color.Red);
         }
     }

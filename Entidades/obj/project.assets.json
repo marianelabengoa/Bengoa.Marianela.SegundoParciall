@@ -2003,19 +2003,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\manue\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj",
       "projectName": "Entidades",
-      "projectPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\Entidades.csproj",
-      "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manue\\source\\repos\\Bengoa.Marianela.SegundoParcial-\\Entidades\\obj\\",
+      "projectPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\manue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -14,8 +14,8 @@ namespace WinFormLogin
 {
     public partial class FormModificarVisita : Form
     {
-        private List<Visita> lista;
-        public FormModificarVisita(List<Visita> listVisita)
+        private GenericsListaEspera<Visita> lista;
+        public FormModificarVisita(GenericsListaEspera<Visita> listVisita)
         {
             InitializeComponent();
             this.lista = listVisita;
@@ -68,7 +68,7 @@ namespace WinFormLogin
                 int indice = this.lstPac.SelectedIndex;
 
 
-                Visita visita = this.lista[indice];
+                Visita visita = lista.Lista[indice];
 
                 txtNombre.Text = visita.Nombre;
                 txtApellido.Text = visita.Apellido;
@@ -99,7 +99,7 @@ namespace WinFormLogin
                     int numeroHabitacion = int.Parse(txtNumHab.Text);
                     string parentesco = txtParentesco.Text;
                     Visita nuevaVisita =new Visita(nombre, apellido, edad, dni, visita.paciente, numeroHabitacion, parentesco);
-                    this.lista[indice]=nuevaVisita;
+                    this.lista.Lista[indice]=nuevaVisita;
                     
                     this.Actualizar();
                 }
@@ -119,7 +119,7 @@ namespace WinFormLogin
             if (lstPac.SelectedIndex != -1)
             {
                 int indice = this.lstPac.SelectedIndex;
-                lista.RemoveAt(indice);
+                lista.Lista.RemoveAt(indice);
                 this.Actualizar();
             }
         }
@@ -127,7 +127,7 @@ namespace WinFormLogin
         private void Actualizar()
         {
             this.lstPac.Items.Clear();
-            foreach (Visita visita in lista)
+            foreach (Visita visita in lista.Lista)
             {
                 lstPac.Items.Add(visita.Mostrar());
             }
