@@ -14,4 +14,5 @@ Resumen: Esta app permite llevar un registro de las personas que ingresan al hos
   		Agregue unit testing que prueba que las clases de la biblioteca Entidades esten bien, Task que agregan
     		funcionalidades mas esteticas, y Eventos que hacen mas practica a la app. Use una interfaz para agregar un formulario de evaluacion de 			consulta.
 
-Diagrama de clases: 
+Diagrama de clases: ![EntidadesDiagram](https://github.com/marianelabengoa/Bengoa.Marianela.SegundoParciall/assets/124008963/2db64f73-730c-4561-a465-5006ad142155)
+
