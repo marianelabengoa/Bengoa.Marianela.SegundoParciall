@@ -2021,19 +2021,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\WinFormLogin\\WinFormLogin.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\WinFormLogin.csproj",
       "projectName": "WinFormLogin",
-      "projectPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\WinFormLogin\\WinFormLogin.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\WinFormLogin\\obj\\",
+      "projectPath": "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\WinFormLogin.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pc\\source\\repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2047,8 +2047,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj": {
-              "projectPath": "C:\\Users\\User\\Bengoa.Marianela.SegundoParcial\\Bengoa.Marianela.SegundoParciall\\Entidades\\Entidades.csproj"
+            "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\Entidades\\Entidades.csproj"
             }
           }
         }
