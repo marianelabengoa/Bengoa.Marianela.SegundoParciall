@@ -40,7 +40,7 @@ namespace WinFormLogin
             }
         }
 
-        private Usuario Verificar()
+        /*private Usuario Verificar()
         {
             Usuario rta = null;
 
@@ -78,6 +78,45 @@ namespace WinFormLogin
                 MessageBox.Show("El archivo de usuarios no existe.");
             }
 
+            return rta;
+        }*/
+        private Usuario Verificar()
+        {
+            Usuario rta = null;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Seleccionar archivo JSON de usuarios";
+                openFileDialog.Filter = "Archivos JSON (*.json)|*.json|Todos los archivos (*.*)|*.*";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string json_str = File.ReadAllText(openFileDialog.FileName);
+
+                    List<Usuario> users = JsonSerializer.Deserialize<List<Usuario>>(json_str);
+
+                    if (users != null && users.Count > 0)
+                    {
+                        foreach (Usuario item in users)
+                        {
+                            if (item.Correo == this.txtUser.Text && item.Clave == this.txtClave.Text)
+                            {
+                                rta = item;
+                                break;
+                            }
+                        }
+
+                        if (rta == null)
+                        {
+                            MessageBox.Show("Usuario o contraseña incorrectos");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay usuarios en la base de datos.");
+                    }
+                }
+            }
             return rta;
         }
 

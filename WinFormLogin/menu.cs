@@ -126,13 +126,25 @@ namespace WinFormLogin
 
         private void btnVisualizarLog_Click(object sender, EventArgs e)
         {
-            using (StreamReader sr = new StreamReader(@"..\..\..\Usuarios.log"))
+            /*using (StreamReader sr = new StreamReader(@"..\..\..\Usuarios.log"))
 
             {
                 string logContent = sr.ReadToEnd();
                 FrmVisualizadorLog visualizador = new FrmVisualizadorLog();
                 visualizador.MostrarLog(logContent);
                 visualizador.ShowDialog();
+            }*/
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Title = "Guardar archivo de registro";
+                saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string logFilePath = @"..\..\..\Usuarios.log";
+                    File.Copy(logFilePath, saveFileDialog.FileName, true);
+                    MessageBox.Show($"Archivo guardado en: {saveFileDialog.FileName}");
+                }
             }
         }
 
