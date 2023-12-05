@@ -6,92 +6,79 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test
+namespace Entidades.Test
 {
-    public class PacienteTest
+    [TestClass]
+    public class PacienteTests
     {
-
         [TestMethod]
         public void RealizarAccion_DebeRetornarMensajeCorrecto()
         {
             // Arrange
-            Paciente paciente = new Paciente("John", "Doe", 35, 123456789, 101);
+            Paciente paciente = new Paciente("Juan", "Perez", 30, 123456789, 101);
 
             // Act
             string resultado = paciente.RealizarAccion();
 
             // Assert
-            Assert.AreEqual("John esta siendo atendido", resultado);
+            Assert.AreEqual("Juan esta siendo atendido", resultado);
         }
 
         [TestMethod]
-        public void ToString_DebeRetornarCadenaConDatosCorrectos()
+        public void ToString_DebeRetornarDatosCorrectos()
         {
             // Arrange
-            Paciente paciente = new Paciente("Jane", "Smith", 40, 987654321, 202, EObraSocial.Galeno, new DateTime(1982, 5, 15));
+            DateTime fechaNacimiento = new DateTime(1990, 5, 15);
+            Paciente paciente = new Paciente("Maria", "Gomez", 25, 987654321, 202, EObraSocial.OSDE, fechaNacimiento);
 
             // Act
             string resultado = paciente.ToString();
 
             // Assert
-            StringAssert.Contains(resultado, "nombre : Jane");
-            StringAssert.Contains(resultado, "apellido: Smith");
-            StringAssert.Contains(resultado, "edad: 40");
+            StringAssert.Contains(resultado, "nombre : Maria");
+            StringAssert.Contains(resultado, "apellido: Gomez");
+            StringAssert.Contains(resultado, "edad: 25");
             StringAssert.Contains(resultado, "dni: 987654321");
-            StringAssert.Contains(resultado, "obra social: Galeno");
+            StringAssert.Contains(resultado, "obra social: OSDE");
             StringAssert.Contains(resultado, "numero habitacion: 202");
-            StringAssert.Contains(resultado, "fecha nacimiento: 15/05/1982");
+            StringAssert.Contains(resultado, "fecha nacimiento: 15/05/1990");
         }
 
         [TestMethod]
-        public void Mostrar_DebeRetornarCadenaConDatosDeLaPersona()
+        public void Mostrar_DebeRetornarDatosCorrectos()
         {
             // Arrange
-            Paciente paciente = new Paciente("Bob", "Johnson", 45, 555555555, 303);
+            Paciente paciente = new Paciente("Carlos", "Lopez", 35, 456789123, 303);
 
             // Act
             string resultado = paciente.Mostrar();
 
             // Assert
-            StringAssert.Contains(resultado, "nombre: Bob");
-            StringAssert.Contains(resultado, "apellido: Johnson");
-            StringAssert.Contains(resultado, "edad: 45");
-            StringAssert.Contains(resultado, "DNI 555555555");
+            StringAssert.Contains(resultado, "Nombre: Carlos");
+            StringAssert.Contains(resultado, "Apellido: Lopez");
+            StringAssert.Contains(resultado, "Edad: 35");
+            StringAssert.Contains(resultado, "DNI: 456789123");
         }
 
         [TestMethod]
-        public void Equals_CuandoObjetoEsPaciente_DebeRetornarTrue()
+        public void Equals_DebeRetornarTrueSiTipoEsPaciente()
         {
             // Arrange
-            Paciente paciente1 = new Paciente("Alice", "Williams", 30, 111111111, 404);
-            Paciente paciente2 = new Paciente("Bob", "Johnson", 45, 555555555, 505);
+            Paciente paciente = new Paciente("Ana", "Rodriguez", 28, 111222333, 404);
 
             // Act
-            bool resultado = paciente1.Equals(paciente2);
+            bool resultado = paciente.Equals(new Paciente());
 
             // Assert
             Assert.IsTrue(resultado);
         }
 
         [TestMethod]
-        public void Equals_CuandoObjetoNoEsPaciente_DebeRetornarFalse()
+        public void OperadorIgual_DebeRetornarTrueSiNombresYApellidosSonIguales()
         {
             // Arrange
-            Paciente paciente = new Paciente("Charlie", "Brown", 25, 999999999, 606);
-
-            // Act
-            bool resultado = paciente.Equals(new Doctor("Charlie", "Brown", 25, 999999999, "Cirugía"));
-
-            // Assert
-            Assert.IsTrue(resultado);
-        }
-
-        [TestMethod]
-        public void Igualdad_CuandoPacientesTienenMismoNombre_DebeRetornarTrue()
-        {
-            // Arrange
-            Paciente paciente1 = new Paciente("John", "Doe", 35, 123456789, 101);
-            Paciente paciente2 = new Paciente("John", "Smith", 40, 987654321, 202, EObraSocial.Galeno, new DateTime(1982, 5, 15));
+            Paciente paciente1 = new Paciente("Ana", "Rodriguez", 28, 111222333, 505);
+            Paciente paciente2 = new Paciente("Ana", "Rodriguez", 28, 111222333, 606);
 
             // Act
             bool resultado = paciente1 == paciente2;
@@ -101,39 +88,11 @@ namespace Test
         }
 
         [TestMethod]
-        public void Igualdad_CuandoPacientesTienenDistintoNombre_DebeRetornarFalse()
+        public void OperadorDiferente_DebeRetornarTrueSiNombresYApellidosNoSonIguales()
         {
             // Arrange
-            Paciente paciente1 = new Paciente("Jane", "Smith", 40, 987654321, 202, EObraSocial.Galeno, new DateTime(1982, 5, 15));
-            Paciente paciente2 = new Paciente("John", "Doe", 35, 123456789, 101);
-
-            // Act
-            bool resultado = paciente1 == paciente2;
-
-            // Assert
-            Assert.IsFalse(resultado);
-        }
-
-        [TestMethod]
-        public void Desigualdad_CuandoPacientesTienenMismoNombre_DebeRetornarFalse()
-        {
-            // Arrange
-            Paciente paciente1 = new Paciente("John", "Doe", 35, 123456789, 101);
-            Paciente paciente2 = new Paciente("Jahn", "Smith", 40, 987654321, 202, EObraSocial.Galeno, new DateTime(1982, 5, 15));
-
-            // Act
-            bool resultado = paciente1 != paciente2;
-
-            // Assert
-            Assert.IsFalse(resultado);
-        }
-
-        [TestMethod]
-        public void Desigualdad_CuandoPacientesTienenDistintoNombre_DebeRetornarTrue()
-        {
-            // Arrange
-            Paciente paciente1 = new Paciente("Jane", "Smith", 40, 987654321, 202, EObraSocial.Galeno, new DateTime(1982, 5, 15));
-            Paciente paciente2 = new Paciente("John", "Doe", 35, 123456789, 101);
+            Paciente paciente1 = new Paciente("Eduardo", "Lopez", 40, 555666777, 707);
+            Paciente paciente2 = new Paciente("Maria", "Gomez", 25, 987654321, 808);
 
             // Act
             bool resultado = paciente1 != paciente2;

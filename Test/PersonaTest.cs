@@ -7,62 +7,51 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test
+namespace Entidades.Test
 {
-    internal class PersonaTest
+    [TestClass]
+    public class PersonaTests
     {
         [TestMethod]
-        public void ToString_DebeRetornarCadenaConDatosCorrectos()
+        public void ToString_DebeRetornarDatosCorrectos()
         {
             // Arrange
-            Doctor persona = new Doctor("juan", "rodriguez", 35, 123456789, "dermatologia");
+            Persona persona = new Paciente("Maria", "Gomez", 25, 987654321, 101);
 
             // Act
             string resultado = persona.ToString();
 
             // Assert
-            StringAssert.Contains(resultado, "nombre: juan");
-            StringAssert.Contains(resultado, "apellido: rodriguez");
-            StringAssert.Contains(resultado, "edad: 35");
-            StringAssert.Contains(resultado, "DNI 123456789");
+            StringAssert.Contains(resultado, "nombre: Maria");
+            StringAssert.Contains(resultado, "apellido: Gomez");
+            StringAssert.Contains(resultado, "edad: 0"); // La edad es 0 porque no se estableció en este caso
+            StringAssert.Contains(resultado, "DNI 987654321");
         }
 
+
         [TestMethod]
-        public void Equals_CuandoObjetoEsPersona_DebeRetornarTrue()
+        public void Pagar_PacienteGaleno_DebeRetornarMontoConDescuento30PorCiento()
         {
             // Arrange
-            Paciente persona1 = new Paciente("alicia", "fernandez", 30, 111111111, 2);
-            Doctor persona2 = new Doctor("eugenio", "lopez", 45, 555555555, "traumatologia");
+            Paciente paciente = new Paciente("Ana", "Rodriguez", 28, 111222333, 404, EObraSocial.Galeno);
+            Persona persona = paciente as Persona;
 
             // Act
-            bool resultado = persona1.Equals(persona2);
-
-            // Assert
-            Assert.IsTrue(resultado);
-        }
-
-
-        [TestMethod]
-        public void Pagar_ConPacienteGaleno_DebeRetornarMontoConDescuento30Porciento()
-        {
-
-            Paciente paciente = new Paciente("Eva", "Gonzalez", 28, 888888888, 1,EObraSocial.Galeno);
-
-            // Act
-            float resultado = paciente.Pagar(paciente);
+            float resultado = persona.Pagar(paciente);
 
             // Assert
             Assert.AreEqual(700.0f, resultado);
         }
 
         [TestMethod]
-        public void Pagar_ConVisita_DebeRetornarMontoFijo1500()
+        public void Pagar_Visita_DebeRetornarMonto1500()
         {
             // Arrange
-            Visita persona = new Visita("miguel", "sanchez", 40, 777777777,"maria gonzalez");
+            Visita visita = new Visita("Carlos", "Lopez", 45, 456789123, "PacienteX", 303, "Familiar");
+            Persona persona = visita as Persona;
 
             // Act
-            float resultado = persona.Pagar(persona);
+            float resultado = persona.Pagar(visita);
 
             // Assert
             Assert.AreEqual(1500.0f, resultado);

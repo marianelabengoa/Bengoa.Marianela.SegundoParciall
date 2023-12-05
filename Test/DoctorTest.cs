@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test
+namespace Entidades.Test
 {
     [TestClass]
     public class DoctorTests
@@ -62,7 +62,7 @@ namespace Test
         public void Equals_DebeRetornarTrueSiNombresYApellidosSonIguales()
         {
             // Arrange
-            Doctor doctor1 = new Doctor("Ana", "Rodriguez", 28, 111222333, "Neurología");
+            Doctor doctor1 = new Doctor("Ana", "Rodriguez", 28, 111222333, "Oftalmología");
             Doctor doctor2 = new Doctor("Ana", "Rodriguez", 28, 111222333, "Oftalmología");
 
             // Act

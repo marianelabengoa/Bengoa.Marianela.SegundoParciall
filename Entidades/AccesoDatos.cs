@@ -36,7 +36,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-
+                throw new MySqlException( "Error en la conexion", ex);
             }
             finally
             {

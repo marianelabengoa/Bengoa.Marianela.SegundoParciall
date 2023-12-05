@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WinFormLogin
 {
-    internal class SqlException:Exception
+    internal class MySqlException:Exception
     {
-        public SqlException(string message, Exception innerException)
+        public MySqlException(string message, Exception innerException)
         {
             MessageBox.Show($"Error en la conexion: {innerException}");
         }

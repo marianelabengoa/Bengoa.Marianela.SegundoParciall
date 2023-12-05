@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Entidades;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test
+namespace Entidades.Test
 {
     [TestClass]
     public class VisitaTests

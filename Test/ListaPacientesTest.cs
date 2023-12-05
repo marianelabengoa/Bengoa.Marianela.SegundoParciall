@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test
+namespace Entidades.Test
 {
     using global::Entidades;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

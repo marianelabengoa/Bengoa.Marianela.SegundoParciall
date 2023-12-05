@@ -72,7 +72,7 @@
         "projectName": "WinFormLogin",
         "projectPath": "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\WinFormLogin.csproj",
         "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\source\\repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\obj\\",
+        "outputPath": "C:\\Users\\pc\\Source\\Repos\\Bengoa.Marianela.SegundoParcial\\WinFormLogin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
