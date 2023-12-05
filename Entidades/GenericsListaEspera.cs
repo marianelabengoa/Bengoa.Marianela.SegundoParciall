@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class GenericsListaEspera<Visita> //where Visita : class, new()
+    public class GenericsListaEspera<T> where T : Visita
     {
         private static List<Visita> lista;
         private int capacidad;
