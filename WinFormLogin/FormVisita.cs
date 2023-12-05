@@ -14,17 +14,12 @@ namespace WinFormLogin
 {
     public partial class FormVisita : Main
     {
-        //public List<Visita> listaVisitas;
         static GenericsListaEspera<Visita> listaVisitas;
 
-        //public static List<Visita> Lista { get; internal set; }
-
-        // public List<Visita> listaVisitas { get; set; }
 
         public FormVisita()
         {
             InitializeComponent();
-            //listaVisitas = new List<Visita>();
             listaVisitas = new GenericsListaEspera<Visita>(5);
             this.txtNumHabitacion.Hide();
             label6.Visible = false;
@@ -96,7 +91,9 @@ namespace WinFormLogin
 
                     if (visita != null)
                     {
-                        MessageBox.Show($"La visita debe pagar ${monto}");
+                       // MessageBox.Show($"La visita debe pagar ${monto}");
+                        Action<string> mostrarMensaje = mensaje => MessageBox.Show(mensaje);
+                        mostrarMensaje($"La visita debe pagar ${monto}");
                     }
 
                     MessageBox.Show(visita.Mostrar());
