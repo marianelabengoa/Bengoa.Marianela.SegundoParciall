@@ -14,6 +14,7 @@ namespace WinFormLogin
 {
     public partial class FormModificarVisita : Form
     {
+        FrmLogin frml = new FrmLogin();
         public static GenericsListaEspera<Visita> lista;
         public FormModificarVisita(GenericsListaEspera<Visita> listVisita)
         {
@@ -61,51 +62,7 @@ namespace WinFormLogin
             this.Close();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            if (lstPac.SelectedIndex != -1)
-            {
-                int indice = this.lstPac.SelectedIndex;
-
-
-                Visita visita = lista.Lista[indice];
-
-                txtNombre.Text = visita.Nombre;
-                txtApellido.Text = visita.Apellido;
-                txtDNI.Text = visita.Dni.ToString();
-                txtEdad.Text = visita.Edad.ToString();
-                if (visita.numeroHabitacion != null)
-                { 
-                    txtNumHab.Text = visita.numeroHabitacion.ToString();
-                }
-                if(visita.parentesco!=null)
-                {
-
-                    txtParentesco.Text = visita.parentesco;
-                }
-
-                if(btnAceptar.DialogResult == DialogResult.OK)
-                {
-                    /*visita.Nombre=txtNombre.Text;
-                    visita.Apellido=txtApellido.Text;
-                    visita.Dni=int.Parse(txtDNI.Text);
-                    visita.Edad=int.Parse(txtEdad.Text);
-                    visita.numeroHabitacion=int.Parse(txtNumHab.Text);
-                    visita.parentesco=txtParentesco.Text;*/
-                    string nombre = txtNombre.Text;
-                    string apellido = txtApellido.Text;
-                    int dni = int.Parse(txtDNI.Text);
-                    int edad = int.Parse(txtEdad.Text);
-                    int numeroHabitacion = int.Parse(txtNumHab.Text);
-                    string parentesco = txtParentesco.Text;
-                    Visita nuevaVisita =new Visita(nombre, apellido, edad, dni, visita.paciente, numeroHabitacion, parentesco);
-                    lista.Lista[indice] = nuevaVisita;
-                    
-                    this.Actualizar();
-                }
-
-            }
-        }
+        
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -116,12 +73,16 @@ namespace WinFormLogin
             // Actualiza el ListBox con la lista actualizada
             //lstPac.DataSource = null;
             //lstPac.DataSource = lista;
-            if (lstPac.SelectedIndex != -1)
+            if (FrmLogin.i == 3)
             {
-                int indice = this.lstPac.SelectedIndex;
-                lista.Lista.RemoveAt(indice);
-                this.Actualizar();
+                if (lstPac.SelectedIndex != -1)
+                {
+                    int indice = this.lstPac.SelectedIndex;
+                    lista.Lista.RemoveAt(indice);
+                    this.Actualizar();
+                }
             }
+            
         }
         
         private void Actualizar()

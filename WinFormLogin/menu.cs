@@ -13,6 +13,7 @@ namespace WinFormLogin
 {
     public partial class menu : Form
     {
+        private FrmLogin FrmLogin = new FrmLogin();
         private string[] imagenes = { @"..\..\..\imagen11.jpg", @"..\..\..\imagen22.jpg", @"..\..\..\imagen33.jpg" };
         private int indiceActual = 0;
         private Task carruselTask;
@@ -34,20 +35,56 @@ namespace WinFormLogin
 
         private void btnAgregarVis_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
-            if (Main.lista.Verificar() == true)
+            if(FrmLogin.i==3 || FrmLogin.i==2)
             {
-                FormVisita visita = new FormVisita();
-                listaV = visita.Lista();
-                bool pacconf = true;
+
+                if (Main.lista.Verificar() == true)
+                {
+                    FormVisita visita = new FormVisita();
+                    listaV = visita.Lista();
+                    bool pacconf = true;
+
+                    while (pacconf)
+                    {
+                        DialogResult vis = visita.ShowDialog();
+
+                        if (vis == DialogResult.OK)
+                        {
+                            DialogResult paccon = MessageBox.Show("¿Desea ingresar otra visita?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                            if (paccon == DialogResult.Yes)
+                            {
+                                pacconf = true;
+                            }
+                            else
+                            {
+                                pacconf = false;
+                            }
+                        }
+                        else
+                        {
+                            pacconf = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AgregarPac()
+        {
+            //if (FrmLogin.UsuarioDelForm.Perfil == "administrador" || FrmLogin.UsuarioDelForm.Perfil == "supervisor")
+            if (FrmLogin.i == 3 || FrmLogin.i==2)
+            {
+
+               bool pacconf = true;
 
                 while (pacconf)
                 {
-                    DialogResult vis = visita.ShowDialog();
+                    DialogResult ma = mainForm.ShowDialog();
 
-                    if (vis == DialogResult.OK)
+                    if (ma == DialogResult.OK)
                     {
-                        DialogResult paccon = MessageBox.Show("¿Desea ingresar otra visita?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        DialogResult paccon = MessageBox.Show("¿Desea ingresar otro paciente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (paccon == DialogResult.Yes)
                         {
@@ -62,35 +99,6 @@ namespace WinFormLogin
                     {
                         pacconf = false;
                     }
-                }
-
-            }
-        }
-
-        private void AgregarPac()
-        {
-            bool pacconf = true;
-
-            while (pacconf)
-            {
-                DialogResult ma = mainForm.ShowDialog();
-
-                if (ma == DialogResult.OK)
-                {
-                    DialogResult paccon = MessageBox.Show("¿Desea ingresar otro paciente?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (paccon == DialogResult.Yes)
-                    {
-                        pacconf = true;
-                    }
-                    else
-                    {
-                        pacconf = false;
-                    }
-                }
-                else
-                {
-                    pacconf = false;
                 }
             }
         }
@@ -111,9 +119,9 @@ namespace WinFormLogin
             DetenerParpadeo();
         }
 
-        private void btnCerrarApp_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Estás seguro que quieres cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+         private void btnCerrarApp_Click(object sender, EventArgs e)
+         {
+            /*DialogResult result = MessageBox.Show("¿Estás seguro que quieres cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -121,6 +129,20 @@ namespace WinFormLogin
                 carruselTask?.Dispose();
                 DetenerParpadeo();
                 Application.Exit();
+            }*/
+            FormEvaluacion formEvaluacion = new FormEvaluacion();
+            DialogResult dialogResult = formEvaluacion.ShowDialog();
+            if(dialogResult==DialogResult.OK){
+
+                    DialogResult result = MessageBox.Show("¿Estás seguro que quieres cerrar la aplicación?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+              
+                        carruselTask?.Wait();
+                        carruselTask?.Dispose();
+                    }
+                    DetenerParpadeo();
             }
         }
 
@@ -149,16 +171,16 @@ namespace WinFormLogin
         }
 
 
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //Main main = new Main();
-            //FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
-            AccesoDatos ado = new AccesoDatos();
-            FormOrdenarPac formOrdenarPac = new FormOrdenarPac(ado.ObtenerListaPacientes());
+                //Main main = new Main();
+                //FormOrdenarPac formOrdenarPac = new FormOrdenarPac(Main.lista);
+                AccesoDatos ado = new AccesoDatos();
+                FormOrdenarPac formOrdenarPac = new FormOrdenarPac(ado.ObtenerListaPacientes());
 
-            formOrdenarPac.Show();
+                formOrdenarPac.Show();
         }
+        
 
         private void btnModVis_Click(object sender, EventArgs e)
         {

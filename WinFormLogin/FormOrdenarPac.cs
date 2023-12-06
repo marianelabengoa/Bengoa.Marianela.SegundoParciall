@@ -13,6 +13,7 @@ namespace WinFormLogin
 {
     public partial class FormOrdenarPac : Form
     {
+        FrmLogin FrmLogin = new FrmLogin();
         private ListaPacientes lista;
         public FormOrdenarPac(ListaPacientes pacientes)
         {
@@ -23,18 +24,25 @@ namespace WinFormLogin
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<Paciente> l = lista.OrdenarPorEdadAscendente().ToList();
-            Actualizar2(l);
+
+                if (FrmLogin.i == 3 || FrmLogin.i == 2)
+                {
+                List<Paciente> l = lista.OrdenarPorEdadAscendente().ToList();
+                Actualizar2(l);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //ListaPacientes pacientes = lista.OrdenarPorEdadDescendente();
-            //lista = pacientes;
-            //this.lista = lista.OrdenarPorEdadAscendente();
-            //lista.OrdenarPorEdadDescendente();
-            List<Paciente> l =lista.OrdenarPorEdadDescendente().ToList();
-            Actualizar2(l);
+            if (FrmLogin.i == 3 || FrmLogin.i == 2)
+            {
+                //ListaPacientes pacientes = lista.OrdenarPorEdadDescendente();
+                //lista = pacientes;
+                //this.lista = lista.OrdenarPorEdadAscendente();
+                //lista.OrdenarPorEdadDescendente();
+                List<Paciente> l = lista.OrdenarPorEdadDescendente().ToList();
+                Actualizar2(l);
+            }
         }
         private void Actualizar()
         {

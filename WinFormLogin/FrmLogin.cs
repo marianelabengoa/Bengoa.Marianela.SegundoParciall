@@ -9,11 +9,40 @@ namespace WinFormLogin
     public partial class FrmLogin : Form
     {
         private Usuario usuario;
+        public static int i;
 
         public Usuario UsuarioDelForm
         {
             get { return this.usuario; }
         }
+        /*public int PerfilUsuario
+         * 
+        {
+            get
+            {
+                if (usuario != null)
+                {
+                    if (usuario.Perfil == "administrador")
+                    {
+                        return 3;
+                    }
+                    else if (usuario.Perfil == "supervisor")
+                    {
+                        return 2;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    // Handle the case where 'usuario' is null (e.g., log an error or return a default value).
+                    MessageBox.Show("El objeto 'usuario' es nulo.");
+                    return -1; // Default value or appropriate error code.
+                }
+            }
+        }*/
         public FrmLogin()
         {
             InitializeComponent();
@@ -36,6 +65,7 @@ namespace WinFormLogin
             {
                 RegistrarAcceso();
                 MostrarDatos();
+                //PerfilUsuario();
                 this.DialogResult = DialogResult.OK;
             }
         }
@@ -140,14 +170,53 @@ namespace WinFormLogin
         }
         private void MostrarDatos()
         {
+            if (usuario.Perfil == "administrador")
+            {
+                i= 3;
+            }
+            else if (usuario.Perfil == "supervisor")
+            {
+                i = 2;
+            }
+            else
+            {
+                i = 1;
+            }
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Nombre: {usuario.Nombre}");
             sb.AppendLine($"Apellido: {usuario.Apellido}");
             sb.AppendLine($"Legajo: {usuario.Legajo}");
             sb.AppendLine($"Correo: {usuario.Correo}");
             sb.AppendLine($"Perfil: {usuario.Perfil}");
+            
 
             MessageBox.Show(sb.ToString());
         }
+
+        /*public int PerfilUsuario()
+        {
+            if (usuario != null)
+            {
+                if (usuario.Perfil == "administrador")
+                {
+                    return 3;
+                }
+                else if (usuario.Perfil == "supervisor")
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                // Handle the case where 'usuario' is null (e.g., log an error or return a default value).
+                MessageBox.Show("El objeto 'usuario' es nulo.");
+                return -1; // Default value or appropriate error code.
+            }
+        }*/
+
     }
 }

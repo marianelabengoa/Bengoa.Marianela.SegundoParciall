@@ -45,7 +45,7 @@
             // 
             btnAgregarPac.Cursor = Cursors.Hand;
             btnAgregarPac.Location = new Point(18, 83);
-            btnAgregarPac.Margin = new Padding(1, 1, 1, 1);
+            btnAgregarPac.Margin = new Padding(1);
             btnAgregarPac.Name = "btnAgregarPac";
             btnAgregarPac.Size = new Size(166, 22);
             btnAgregarPac.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             btnAgregarVis.Cursor = Cursors.Hand;
             btnAgregarVis.Location = new Point(199, 83);
-            btnAgregarVis.Margin = new Padding(1, 1, 1, 1);
+            btnAgregarVis.Margin = new Padding(1);
             btnAgregarVis.Name = "btnAgregarVis";
             btnAgregarVis.Size = new Size(163, 22);
             btnAgregarVis.TabIndex = 1;
@@ -78,8 +78,8 @@
             // btnCerrarApp
             // 
             btnCerrarApp.Cursor = Cursors.Hand;
-            btnCerrarApp.Location = new Point(93, 169);
-            btnCerrarApp.Margin = new Padding(1, 1, 1, 1);
+            btnCerrarApp.Location = new Point(106, 168);
+            btnCerrarApp.Margin = new Padding(1);
             btnCerrarApp.Name = "btnCerrarApp";
             btnCerrarApp.Size = new Size(163, 22);
             btnCerrarApp.TabIndex = 3;
@@ -91,7 +91,7 @@
             // 
             btnModificar.Cursor = Cursors.Hand;
             btnModificar.Location = new Point(18, 112);
-            btnModificar.Margin = new Padding(1, 1, 1, 1);
+            btnModificar.Margin = new Padding(1);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(163, 22);
             btnModificar.TabIndex = 4;
@@ -103,7 +103,7 @@
             // 
             btnModVis.Cursor = Cursors.Hand;
             btnModVis.Location = new Point(199, 112);
-            btnModVis.Margin = new Padding(1, 1, 1, 1);
+            btnModVis.Margin = new Padding(1);
             btnModVis.Name = "btnModVis";
             btnModVis.Size = new Size(163, 22);
             btnModVis.TabIndex = 5;
@@ -115,7 +115,7 @@
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Location = new Point(427, 4);
-            pictureBox1.Margin = new Padding(1, 1, 1, 1);
+            pictureBox1.Margin = new Padding(1);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(175, 156);
             pictureBox1.TabIndex = 6;
@@ -125,11 +125,11 @@
             // lblBienvenido
             // 
             lblBienvenido.AutoSize = true;
-            lblBienvenido.Font = new Font("Schadow BT", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBienvenido.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Point);
             lblBienvenido.Location = new Point(116, 16);
             lblBienvenido.Margin = new Padding(1, 0, 1, 0);
             lblBienvenido.Name = "lblBienvenido";
-            lblBienvenido.Size = new Size(137, 22);
+            lblBienvenido.Size = new Size(135, 24);
             lblBienvenido.TabIndex = 7;
             lblBienvenido.Text = "BIENVENIDO";
             // 
@@ -160,7 +160,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(480, 201);
+            ClientSize = new Size(618, 201);
             Controls.Add(btnVisualizadorLog);
             Controls.Add(label2);
             Controls.Add(lblBienvenido);
@@ -171,7 +171,7 @@
             Controls.Add(label1);
             Controls.Add(btnAgregarVis);
             Controls.Add(btnAgregarPac);
-            Margin = new Padding(1, 1, 1, 1);
+            Margin = new Padding(1);
             Name = "menu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "menu";
