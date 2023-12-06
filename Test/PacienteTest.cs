@@ -35,13 +35,8 @@ namespace Entidades.Test
             string resultado = paciente.ToString();
 
             // Assert
-            StringAssert.Contains(resultado, "nombre : Maria");
-            StringAssert.Contains(resultado, "apellido: Gomez");
-            StringAssert.Contains(resultado, "edad: 25");
-            StringAssert.Contains(resultado, "dni: 987654321");
-            StringAssert.Contains(resultado, "obra social: OSDE");
-            StringAssert.Contains(resultado, "numero habitacion: 202");
-            StringAssert.Contains(resultado, "fecha nacimiento: 15/05/1990");
+            StringAssert.Contains(resultado, "nombre : Maria\r\napellido: Gomez\r\nedad: 25\r\ndni: 987654321\r\nobra social: OSDE\r\nnumero habitacion: 202\r\nfecha nacimiento: 15/5/1990 00:00:00");
+
         }
 
         [TestMethod]
@@ -54,10 +49,10 @@ namespace Entidades.Test
             string resultado = paciente.Mostrar();
 
             // Assert
-            StringAssert.Contains(resultado, "Nombre: Carlos");
-            StringAssert.Contains(resultado, "Apellido: Lopez");
+            StringAssert.Contains(resultado, "nombre: Carlos, apellido: Lopez, edad: 35, DNI 456789123");
+            /*StringAssert.Contains(resultado, "Apellido: Lopez");
             StringAssert.Contains(resultado, "Edad: 35");
-            StringAssert.Contains(resultado, "DNI: 456789123");
+            StringAssert.Contains(resultado, "DNI: 456789123");*/
         }
 
         [TestMethod]

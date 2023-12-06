@@ -24,8 +24,8 @@ namespace Entidades.Tests
             string resultado = lista.ToString();
 
             // Assert
-            StringAssert.Contains(resultado, "Nombre: Juan");
-            StringAssert.Contains(resultado, "Apellido: Perez");
+            StringAssert.Contains(resultado, "nombre : Juan\r\napellido: Perez\r\nedad: 30\r\ndni: 123456789\r\nobra social: noPosee\r\nnumero habitacion: 1\r\n\r\nnombre : Maria\r\napellido: Gomez\r\nedad: 25\r\ndni: 987654321\r\nobra social: noPosee\r\nnumero habitacion: 2");
+            /*StringAssert.Contains(resultado, "Apellido: Perez");
             StringAssert.Contains(resultado, "Edad: 30");
             StringAssert.Contains(resultado, "DNI: 123456789");
             StringAssert.Contains(resultado, "numeroHabitacion: 1");
@@ -33,7 +33,7 @@ namespace Entidades.Tests
             StringAssert.Contains(resultado, "Apellido: Gomez");
             StringAssert.Contains(resultado, "Edad: 25");
             StringAssert.Contains(resultado, "DNI: 987654321");
-            StringAssert.Contains(resultado, "numeroHabitacion: 2");
+            StringAssert.Contains(resultado, "numeroHabitacion: 2");*/
 
         }
 

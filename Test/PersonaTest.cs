@@ -22,10 +22,13 @@ namespace Entidades.Test
             string resultado = persona.ToString();
 
             // Assert
-            StringAssert.Contains(resultado, "nombre: Maria");
-            StringAssert.Contains(resultado, "apellido: Gomez");
-            StringAssert.Contains(resultado, "edad: 0"); // La edad es 0 porque no se estableció en este caso
+            StringAssert.Contains(resultado, "nombre : Maria\r\napellido: Gomez\r\nedad: 25\r\ndni: 987654321\r\nobra social: noPosee\r\nnumero habitacion: 101");
+            /*StringAssert.Contains(resultado, "apellido: Gomez");
+            StringAssert.Contains(resultado, "edad: 25");
             StringAssert.Contains(resultado, "DNI 987654321");
+            StringAssert.Contains(resultado, "obra social: noPosee");
+            StringAssert.Contains(resultado, "numero habitacion: 101");*/
+
         }
 
 

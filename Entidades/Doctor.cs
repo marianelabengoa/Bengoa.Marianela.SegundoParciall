@@ -83,9 +83,9 @@ namespace Entidades
         {
             if (a.nombre == b.nombre & a.apellido == b.apellido)
             {
-                return false;
+                return true;
             }
-            else { return true; }
+            else { return false; }
         }
         /// <summary>
         /// valida si ambos doctores tienen el mismo nombre

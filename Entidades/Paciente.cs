@@ -107,9 +107,9 @@ namespace Entidades
         {
             if (a.nombre == b.nombre & a.apellido == b.apellido)
             {
-                return false;
+                return true;
             }
-            else { return true; }
+            else { return false; }
         }
         /// <summary>
         /// sobrecarga operador == que valida que los pacientes no tengan e mismo nombre ni sean null
